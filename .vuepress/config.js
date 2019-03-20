@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'HPE Express Containers',
+  title: 'HPE Enterprise Containers',
   //base: '/Docker-SimpliVity/',  
   themeConfig: {
     nav: [
@@ -7,7 +7,7 @@ module.exports = {
       { text: 'Blog', link: '/blog/' }
     ],
 
-    repo: 'HewlettPackard/Docker-Simplivity',
+    repo: 'HewlettPackard/Docker-Synergy',
     // Customising the header label
     // Defaults to "GitHub"/"GitLab"/"Bitbucket" depending on `themeConfig.repo`
     repoLabel: 'Contribute!',
@@ -33,7 +33,7 @@ module.exports = {
         title: 'Introduction',
         collapsable: true,
         children: [
-          '/introduction'
+          '/introduction-syn'
         ]
       },
       {
