@@ -51,7 +51,7 @@ module.exports = {
           'soln-overview/syn-solution-overview',
           'soln-overview/syn-config',
           'soln-overview/solution-config',
-          'soln-overview/sizing',
+          'soln-overview/sizing-syn',
           'soln-overview/disaster-recovery',
           'soln-overview/security'
         ]
