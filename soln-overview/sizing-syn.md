@@ -38,6 +38,9 @@ For this solution, the following tables describe sizing configurations, assuming
 **Note:** 
 In the case of one ESX host failure, 2 nodes are enough to accommodate the amount of vCPU required.
 
+
+## Memory allocation for 3 node solution
+
 **Table 2.** Memory allocation
 
 |RAM (GB)|node01|node02|node03|

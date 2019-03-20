@@ -59,7 +59,7 @@ module.exports = {
       {
         title: 'Solution components',
         children: [
-          'soln-components/hardware',
+          'soln-components/hardware-syn',
           'soln-components/software',
           'soln-components/application-software'
         ]
