@@ -41,15 +41,15 @@ module.exports = {
         collapsable: true,
         children: [
           '/rel-notes/new-features-syn',
-          '/rel-notes/configuration-updates',
-          '/rel-notes/fixed-release-svt.md'
+          '/rel-notes/configuration-updates-syn',
+          '/rel-notes/fixed-release-syn'
         ]
       },
       {
         title: 'Solution overview',
         children: [
-          'soln-overview/svt-solution-overview',
-          'soln-overview/svt-config',
+          'soln-overview/syn-solution-overview',
+          'soln-overview/syn-config',
           'soln-overview/solution-config',
           'soln-overview/sizing',
           'soln-overview/disaster-recovery',
