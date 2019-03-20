@@ -1,6 +1,26 @@
 # Configuration updates
 
 
+## Enterprise Containers 2.1
+
+The configuration files for Enterprise Containers 2.1 have been significantly reorganized and extended.
+The `group_vars/vars` and `group_vars/vault` files have been moved down a level into the sub-folder named 
+`all`, so the resultant names are now `group_vars/all/vars` and `group_vars/all/vault`. Similarly, the required `backups` files is now located at `group_vars/all/backups`.
+
+A number of new configuration files have been added to support baremetal worker nodes.
+
+
+
+Other new variables and configuration files introduced in this release of Docker-Synergy include:
+
+
+
+Deprecated variables and files:
+
+
+
+
+
 ## Express Containers 2.1
 
 New variables and configuration files introduced in release 2.1 of Docker-SimpliVity:
@@ -25,9 +45,3 @@ New variables and configuration files introduced in release 2.0 of Docker-Simpli
 -   `windows_update` variable in `group_vars/vars` 
 -   `windows_winrm_script` variable in `group_vars/vars` 
 
-Recently added variables and configuration files inherited from the underlying Docker-Synergy release:
-
--   `splunk_uf_password` variable in `group_vars/vault` 
--   `orchestrator` variable in `vm_hosts` 
--   `k8s_pod_cidr` variable in `group_vars/vars` 
--   Additional configuration files for each group in the inventory including `group_vars/vms.yml`, `group_vars/ucp.yml`, `group_vars/dtr.yml`, `group_vars/worker.yml` and `group_vars/nfs.yml` 

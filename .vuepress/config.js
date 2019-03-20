@@ -40,7 +40,7 @@ module.exports = {
         title: 'Release notes',
         collapsable: true,
         children: [
-          '/rel-notes/new-features',
+          '/rel-notes/new-features-syn',
           '/rel-notes/configuration-updates',
           '/rel-notes/fixed-release-svt.md'
         ]
