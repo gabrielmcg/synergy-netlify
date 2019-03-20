@@ -1,10 +1,15 @@
-# Welcome to HPE Express Containers with Docker Enterprise Edition on HPE SimpliVity
+# Welcome to HPE Reference Configuration for Docker Containers as a Service on HPE Synergy Composable Infrastructure
 
-HPE Express Containers with Docker Enterprise Edition on HPE SimpliVity is a complete solution from Hewlett Packard Enterprise that includes all the hardware, software, professional services, and support you need to deploy a Containers-as-a-Service (CaaS) platform, allowing you to get up and running quickly and efficiently.
+HPE Reference Configuration for Docker Containers as a Service on HPE Synergy Composable Infrastructure is a complete solution from Hewlett Packard Enterprise that includes all the hardware, software, professional services, and support you need to deploy a Containers-as-a-Service (CaaS) platform, allowing you to get up and running quickly and efficiently.
 
 The latest release deploys Docker EE 2.1 with Kubernetes 1.11
 
 New features include:
+
+- Bare metal deployment for Linux and Windows
+
+
+Features taken from the most recent release of HPE Express Containers on HPE SimpliVity include:
 
 - Full deployment of the Prometheus/Grafana stack (including node-exporter and kube-state-metrics) on Kubernetes, using Prometheus Operator
 - Docker UCP metrics for Kubernetes in standalone Prometheus deployment
