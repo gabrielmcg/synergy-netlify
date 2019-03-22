@@ -4,17 +4,17 @@ The playbooks support backing up the swarm, UCP, DTR metadata and DTR images.
 
 ## Backup configuration variables
 
-The following table shows the variables related to backing up UCP and DTR. All these variables are defined in the file **group_vars/backups**. All the data that is backed up is streamed over an SSH connection to the backup server. Currently, the playbooks only support the use of the Ansible box as the backup server.
+The following table shows the variables related to backing up UCP and DTR. All these variables are defined in the file **group_vars/all/backups**. All the data that is backed up is streamed over an SSH connection to the backup server. Currently, the playbooks only support the use of the Ansible box as the backup server.
 
 
 **Table 21.** Backup variables
 
 |Variable|File|Description|
 |:-------|:---|:----------|
-|backup_server|**group_vars/backups**|Currently, the playbooks only support the use of the Ansible box as the backup server.|
-|backup_dest|**group_vars/backups**|This variable should point to an existing folder on your Ansible box where the `root` user has write access. All the backups will be stored in this folder. For example, `/root/backup`|
-|backup_passphrase|**group_vars/vault**|This variable is used to encrypt the tar file with a passphrase that must be at least 12 characters long.|
-|\#swarm_offline_backups|**group_vars/backups**|This variable is commented out by default. More information on this variable is provided below.|
+|backup_server|**group_vars/all/backups**|Currently, the playbooks only support the use of the Ansible box as the backup server.|
+|backup_dest|**group_vars/all/backups**|This variable should point to an existing folder on your Ansible box where the `root` user has write access. All the backups will be stored in this folder. For example, `/root/backup`|
+|backup_passphrase|**group_vars/all/vault**|This variable is used to encrypt the tar file with a passphrase that must be at least 12 characters long.|
+|\#swarm_offline_backups|**group_vars/all/backups**|This variable is commented out by default. More information on this variable is provided below.|
 
 ## Backing up the Swarm
 
@@ -24,7 +24,7 @@ When you backup the swarm, your services and stack definitions are backed up tog
 # ansible-playbook -i vm_hosts playbooks/backup_swarm.yml
 ```
 
-This playbook creates two archives in the folder specified by the variable `backup_dest` in `group_vars/backups`. By default, the file is named using the following pattern:
+This playbook creates two archives in the folder specified by the variable `backup_dest` in `group_vars/all/backups`. By default, the file is named using the following pattern:
 
 ```
 <backup_dest>/backup_swarm_<vmname>_<timestamp>.tgz
@@ -70,7 +70,7 @@ To make a backup of UCP, use `playbook/backup_ucp.yml` as follows:
 # ansible-playbook -i vm_host playbooks/backup_ucp.yml
 ```
 
-This playbook creates two archives in the folder specified by the variable `backup_dest` in `group_vars/backups`. By default, the files are named using the following pattern:
+This playbook creates two archives in the folder specified by the variable `backup_dest` in `group_vars/all/backups`. By default, the files are named using the following pattern:
 
 ```
 <backup_dest>/backup_ucp_<ucpid>_<vmname>_<timestamp>.tgz
@@ -121,7 +121,7 @@ To make a backup of DTR metadata, use `playbook/backup_dtr_metadata.yml`
 # ansible-playbook -i vm_host playbooks/backup_dtr_metadata.yml
 ```
 
-This playbook creates two archives in the folder specified by the variable `backup_dest` in `group_vars/backups`. By default, the file is named using the following pattern:
+This playbook creates two archives in the folder specified by the variable `backup_dest` in `group_vars/all/backups`. By default, the file is named using the following pattern:
 
 ```
 <backup_dest>/backup_dtr_meta_<replica_id>_<vmname>_<timestamp>.tgz
@@ -153,7 +153,7 @@ To make a backup of the images that are inventoried in DTR and stored on the NFS
 # ansible-playbook -i vm_host playbooks/backup_dtr_images.yml
 ```
 
-This playbook creates two archives in the folder specified by the variable `backup_dest` in `group_vars/backups`. By default, the files are named using the following pattern:
+This playbook creates two archives in the folder specified by the variable `backup_dest` in `group_vars/all/backups`. By default, the files are named using the following pattern:
 
 ```
 <backup_dest>/backup_dtr_data_<replica_id>_<vmname>_<timestamp>.tgz
@@ -179,10 +179,10 @@ For more information on DTR backups, see the Docker documentation at [https://do
 
 ## Backing up other metadata, including passwords
 
-The backup playbooks do not backup the sensitive data in your `group_vars/vault` file. The information stored in the `.vars.tgz` files includes backups of the following files:
+The backup playbooks do not backup the sensitive data in your `group_vars/all/vault` file. The information stored in the `.vars.tgz` files includes backups of the following files:
 
 -   **vm_hosts**, a copy of the `vm_hosts` file at the time the backup was taken
--   **vars**, a copy of your `group_vars/vars` file at the time the backup was taken
+-   **vars**, a copy of your `group_vars/all/vars` file at the time the backup was taken
 -   **meta.yml**, a generated file containing information pertaining to the backup
 
 The **meta.yml** file contains the following information:
@@ -207,7 +207,7 @@ The script `backup.sh` can be used to take a backup of the swarm, UCP, DTR metad
 |Custom|`./backup.sh my_backup`|my_backup_swarm.tgz, my_backup_ucp.tgz, my_backup_dtr_meta.tgz, my_backup_dtr_data.tgz, and the corresponding `.vars.tgz` files|
 |Date|`./backup.sh $(date '+%Y_%m_%d_%H%M%S')`|<date\>_swarm.tgz, <date\>_ucp.tgz, <date\>_dtr_meta.tgz, <date\>_dtr_data.tgz, and the corresponding `.vars.tgz` files|
 
-In addition, the `backup.sh` script accepts an optional switch that will let you specify the location of the password file that will be passed to the `ansible-playbook` commands in the script. This is required if you have encrypted the `group_vars/vault` file. The general syntax for this script is as follows:
+In addition, the `backup.sh` script accepts an optional switch that will let you specify the location of the password file that will be passed to the `ansible-playbook` commands in the script. This is required if you have encrypted the `group_vars/all/vault` file. The general syntax for this script is as follows:
 
 ```
 ./backup.sh [ -v <Vault Password File> ] [ tag ]

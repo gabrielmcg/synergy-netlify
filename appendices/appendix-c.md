@@ -2,7 +2,7 @@
 
 The procedure for enabling SSL between the universal forwarders and the Splunk indexers using your certificates is described below. In summary, the following steps are required:
 
-1.  Set the variable `splunk_ssl` to `yes` in `group_vars/vars`
+1.  Set the variable `splunk_ssl` to `yes` in `group_vars/all/vars`
 2.  Put your root CA certificate and your server certificate files in
 
     ```
@@ -68,7 +68,7 @@ Edit the file `server.conf` in the folder `files/splunk/linux/SPLUNK_HOME/etc/sy
 sslRootCAPath = /opt/splunkforwarder/etc/mycerts/ca.pem
 ```
 
-Set `splunk_ssl` to `yes` in the file `group_vars/vars`, uncommenting the line if required. Make sure that the `splunk_architecture_forward_servers` list specifies all your indexers together with the port that was configured to accept SSL:
+Set `splunk_ssl` to `yes` in the file `group_vars/all/vars`, uncommenting the line if required. Make sure that the `splunk_architecture_forward_servers` list specifies all your indexers together with the port that was configured to accept SSL:
 
 ```
 monitoring_stack: splunk
@@ -82,7 +82,7 @@ splunk_architecture_forward_servers:
 
 Currently, you cannot deploy your own certificates for use by the Universal Forwarders deployed on Windows machines. If you want to have your Linux machines in a hybrid deployment to use SSL, proceed as follows.
 
-Comment out the `splunk_architecture_forward_servers` variable (and its values) from `group_vars/vars`
+Comment out the `splunk_architecture_forward_servers` variable (and its values) from `group_vars/all/vars`
 
 ```
 monitoring_stack: splunk

@@ -21,7 +21,7 @@ The virtual IP for UCP will be handled by `hpe-lb1` by default, which will split
 
 Similarly, the virtual IP for DTR will be handled by default by the load balancer `hpe-lb2`, splitting the traffic across the three DTR VMs `hpe-dtr01`, `hpe-dtr02` and `hpe-dtr03`. In the case of a failure of `hpe-lb2`, the virtual IP for DTR will automatically move to the first load balancer node `hpe-lb1` which will again distribute the traffic to the DTR VMs.
 
-To configure the virtual IPs for UCP and DTR, you need to add a `loadbalancers` dictionary to your `group_vars/vars` file as shown in the excerpt below:
+To configure the virtual IPs for UCP and DTR, you need to add a `loadbalancers` dictionary to your `group_vars/all/vars` file as shown in the excerpt below:
 
 ```
 
@@ -56,7 +56,7 @@ If you do not want to deploy load balancers when running `site.yml`, you should 
 
 ### Deploying with your own load balancers
 
-If you are using external load balancers for UCP and DTR, you can configure UCP and DTR to use these external load balancers by specifying FQDNs in the `loadbalancers` dictionary in `group_vars/vars`:
+If you are using external load balancers for UCP and DTR, you can configure UCP and DTR to use these external load balancers by specifying FQDNs in the `loadbalancers` dictionary in `group_vars/all/vars`:
 
 ```
 

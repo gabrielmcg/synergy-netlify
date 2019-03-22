@@ -40,7 +40,7 @@ If you are deploying Sysdig monitoring on Kubernetes, select the `Kubernetes | G
 
 **Figure 9.** Sysdig Monitor access code for Kubernetes
 
-Use the `sysdig_access_key` field in your `group_vars/vault`, as described in the section `Sysdig configuration for Kubernetes`. Once you deploy your environment and your Kubernetes nodes connect to the Sysdig SaaS platform, Sysdig will automatically display information regarding your setup, as shown in Figure 10.
+Use the `sysdig_access_key` field in your `group_vars/all/vault`, as described in the section `Sysdig configuration for Kubernetes`. Once you deploy your environment and your Kubernetes nodes connect to the Sysdig SaaS platform, Sysdig will automatically display information regarding your setup, as shown in Figure 10.
 
 ![ "Sysdig Monitor Spotlight for Kubernetes"][media-sysdig-k8s-spotlight-png]
 
@@ -56,7 +56,7 @@ If you are deploying Sysdig monitoring on Docker swarm, select the `Non-Orchestr
 
 **Figure 11.** Sysdig Monitor download location and access code for Docker
 
-The download URL is used in the `sysdig_agent` field in `group_vars/vars` while the access code is stored in the `sysdig_access_key` field in your `group_vars/vault`, as described in the section `Sysdig configuration for Docker swarm`.
+The download URL is used in the `sysdig_agent` field in `group_vars/all/vars` while the access code is stored in the `sysdig_access_key` field in your `group_vars/all/vault`, as described in the section `Sysdig configuration for Docker swarm`.
 
 Once you deploy your environment and your Docker swarm nodes connect to the Sysdig SaaS platform, Sysdig will automatically display information regarding your setup. Alternatively, you can browse to [https://app.sysdigcloud.com](https://app.sysdigcloud.com) at any time to access your dashboards.
 

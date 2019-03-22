@@ -1,8 +1,8 @@
 # Protecting sensitive information
 
-A vault file is used to protect any sensitive variables that should not appear in clear text in your `group_vars/vars` file. The vault file will be encrypted and will require a password to be entered before it can be read or updated.
+A vault file is used to protect any sensitive variables that should not appear in clear text in your `group_vars/all/vars` file. The vault file will be encrypted and will require a password to be entered before it can be read or updated.
 
-A sample vault file is provided named `group_vars/vault.sample` that you can use as a model for your own vault file. To create a vault, you create a new file called `group_vars/vault` and add entries similar to:
+A sample vault file is provided named `group_vars/all/vault.sample` that you can use as a model for your own vault file. To create a vault, you create a new file called `group_vars/all/vault` and add entries similar to:
 
 ```
 ---
@@ -24,13 +24,13 @@ splunk_uf_password: 'YourPa$$word12'
 To encrypt the vault you need to run the following command:
 
 ```
-# ansible-vault encrypt group_vars/vault
+# ansible-vault encrypt group_vars/all/vault
 ```
 
 You will be prompted for a password that will decrypt the vault when required. You can update the values in your vault by running:
 
 ```
-# ansible-vault edit group_vars/vault
+# ansible-vault edit group_vars/all/vault
 ```
 
 In order for Ansible to be able to read the vault, you need to specify a file where the password is stored, for instance, in a file called `.vault_pass`. Once the file is created, take the following precautions to avoid illegitimate access to this file:

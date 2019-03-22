@@ -43,7 +43,7 @@ dtr_version=""
 
 Take note of the replica ID (`ad5204e8a4d0`), the version of DTR (`2.4.3`) and the version of UCP (`2.2.7`).
 
-**Step 3:** Populate the `group_vars/backups` file
+**Step 3:** Populate the `group_vars/all/backups` file
 
 ```
 backup_swarm: "/root/restore/2018_04_17_151734_swarm.tgz"
@@ -55,26 +55,26 @@ backup_dest: "/root/backups"
 backup_server: <IP of your ansible box>
 ```
 
-You should populate your `group_vars/backups` file as above, with the `backup_dtr_id` variable containing the value you retrieved in the preceding step as `replica_id="ad5204e8a4d0"`.
+You should populate your `group_vars/all/backups` file as above, with the `backup_dtr_id` variable containing the value you retrieved in the preceding step as `replica_id="ad5204e8a4d0"`.
 
-**Step 4:** Verify that your `group_vars/vars` file specifies the correct versions of DTR and UCP.
+**Step 4:** Verify that your `group_vars/all/vars` file specifies the correct versions of DTR and UCP.
 
-The playbooks use the versions of UCP and DTR as specified in your `group_vars/vars` file to restore your backups. You must ensure that the versions specified in your current `group_vars/vars` file correspond to the versions in the backups as determined above.
+The playbooks use the versions of UCP and DTR as specified in your `group_vars/all/vars` file to restore your backups. You must ensure that the versions specified in your current `group_vars/all/vars` file correspond to the versions in the backups as determined above.
 
 ```
-# cat group_vars/vars | grep dtr_version
+# cat group_vars/all/vars | grep dtr_version
 dtr_version: '2.4.3'
 ```
 
 ```
 
-# cat group_vars/vars | grep ucp_version
+# cat group_vars/all/vars | grep ucp_version
 ucp_version: '2.2.7'
 ```
 
 **Step 5:** Restore UCP admin credentials if required
 
-You must ensure that the UCP admin credentials in your current `group_vars/vars` file are those that were in effect when you generated the backup files. If they have changed since then, you must restore the original credentials for the duration of the restore procedure.
+You must ensure that the UCP admin credentials in your current `group_vars/all/vars` file are those that were in effect when you generated the backup files. If they have changed since then, you must restore the original credentials for the duration of the restore procedure.
 
 **Step 6:** Restore your inventory (`vm_hosts`)
 

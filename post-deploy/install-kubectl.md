@@ -1,7 +1,7 @@
 # Installing kubectl
 
 
-A convenience playbook is provided to make it easy to install `kubectl`. This playbook uses variables in `group_vars/vars` to determine which version to download. The default version specified by the variable `kubectl_version` in the sample variables file is `1.11.5`. 
+A convenience playbook is provided to make it easy to install `kubectl`. This playbook uses variables in `group_vars/all/vars` to determine which version to download. The default version specified by the variable `kubectl_version` in the sample variables file is `1.11.5`. 
 
 
 To run the playbook:

@@ -6,8 +6,8 @@ Table 32 lists the variables used when configuring customer supplied certificate
 
 |Variable|File|Description|
 |:-------|:---|:----------|
-|ucp_certs_dir|group_vars/vars| -   If **ucp_certs_dir** is not defined, UCP is installed with self-signed certificates and DTR is installed with the `--ucp-insecure-tls` switch<br>- If **ucp_certs_dir** is defined, this is a folder on the Ansible machine that must contain 3 files:<br>  * `ca.pem`, the root CA certificate in PEM format<br>  *   `cert.pem`, the server certificate optionally followed by intermediate CAs<br>    *   `key.pem`, the private key that comes with the `cert.pem` certificates |
-|dtr_certs_dir|group_vars/vars| -   If **dtr_certs_dir** is not defined, DTR is installed with self-signed certificates<br>-   If **dtr_certs_dir** is defined, this is a folder on the Ansible machine that must contain 3 files:<br>    *   `ca.pem`, the root CA certificate in PEM format<br>    *   `cert.pem`, the server certificate optionally followed by intermediate CAs<br>    *   `key.pem`, the private key that comes with the `cert.pem` certificates |
+|ucp_certs_dir|group_vars/all/vars| -   If **ucp_certs_dir** is not defined, UCP is installed with self-signed certificates and DTR is installed with the `--ucp-insecure-tls` switch<br>- If **ucp_certs_dir** is defined, this is a folder on the Ansible machine that must contain 3 files:<br>  * `ca.pem`, the root CA certificate in PEM format<br>  *   `cert.pem`, the server certificate optionally followed by intermediate CAs<br>    *   `key.pem`, the private key that comes with the `cert.pem` certificates |
+|dtr_certs_dir|group_vars/all/vars| -   If **dtr_certs_dir** is not defined, DTR is installed with self-signed certificates<br>-   If **dtr_certs_dir** is defined, this is a folder on the Ansible machine that must contain 3 files:<br>    *   `ca.pem`, the root CA certificate in PEM format<br>    *   `cert.pem`, the server certificate optionally followed by intermediate CAs<br>    *   `key.pem`, the private key that comes with the `cert.pem` certificates |
 
 **Note:** 
 

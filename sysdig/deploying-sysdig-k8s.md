@@ -5,7 +5,7 @@
 -   Install the `kubectl` binary on your Ansible box
 -   Install the UCP Client bundle for the `admin` user
 -   Confirm that you can connect to the cluster by running a test command, for example, `kubectl get nodes`
--   Ensure that you have configured the required variables, as described in the section `Sysdig configuration for Kubernetes`. For example, you add the relevant variables in the `group_vars/vars` file.
+-   Ensure that you have configured the required variables, as described in the section `Sysdig configuration for Kubernetes`. For example, you add the relevant variables in the `group_vars/all/vars` file.
 
 ```
     sysdig_collector: 'collector.sysdigcloud.com'
@@ -14,7 +14,7 @@
     k8s_cluster: 'ucp_hpe2-ucp.cloudra.local'
 ```
 
-You should add the access key to the encrypted `group_vars/vault` using the command `ansible-vault edit group_vars/vault`.
+You should add the access key to the encrypted `group_vars/all/vault` using the command `ansible-vault edit group_vars/all/vault`.
 
 ```
 sysdig_access_key: '10****97-9160-****-9061-84bfd0f****0'    

@@ -4,7 +4,7 @@ By default, the playbooks for deploying Sysdig are commented out in `site.yml` a
 
 **Note:** 
 
-By default, you must have outgoing port `6666` open in your firewall, to allow data to flow to `collector.sysdigcloud.com`. You can configure the agent to use a different port using the variable `sysdig_collector_port` in `group_vars/vars`.
+By default, you must have outgoing port `6666` open in your firewall, to allow data to flow to `collector.sysdigcloud.com`. You can configure the agent to use a different port using the variable `sysdig_collector_port` in `group_vars/all/vars`.
 
  For more information, see the relevant Sysdig documentation at [https://support.sysdig.com/hc/en-us/articles/204205969](https://support.sysdig.com/hc/en-us/articles/204205969).
 

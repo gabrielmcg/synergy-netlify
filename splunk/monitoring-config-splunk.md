@@ -2,11 +2,11 @@
 
 This solution supports two types of Splunk deployment. Firstly, there is a built-in deployment useful for demos and for getting up to speed with Splunk. Alternatively, the solution can be configured to interact with a standalone, production Splunk deployment that you set up independently. In this case, you must explicitly configure the universal forwarders with external "forward servers" (Splunk indexers), whereas this happens automatically with the built-in option.
 
-In the standalone deployment, you can enable SSL authentication between the universal forwarders and the indexers, by setting the `splunk_ssl` variable to `yes` in the file `group_vars/vars`. The built-in deployment does not support SSL and so, in this instance, the value of the `splunk_ssl` variable is ignored. For more information on enabling SSL, see [Appendix C](#).
+In the standalone deployment, you can enable SSL authentication between the universal forwarders and the indexers, by setting the `splunk_ssl` variable to `yes` in the file `group_vars/all/vars`. The built-in deployment does not support SSL and so, in this instance, the value of the `splunk_ssl` variable is ignored. For more information on enabling SSL, see [Appendix C](#).
 
 ## Splunk prerequisites
 
-You should select the Splunk deployment type that you require by setting the variable `monitoring_stack` in the `group_vars/vars` file to either **splunk**, for a standalone Splunk deployment, or **splunk_demo** for the built-in version. If you omit this variable, or if it has an invalid value, no Splunk deployment will be configured.
+You should select the Splunk deployment type that you require by setting the variable `monitoring_stack` in the `group_vars/all/vars` file to either **splunk**, for a standalone Splunk deployment, or **splunk_demo** for the built-in version. If you omit this variable, or if it has an invalid value, no Splunk deployment will be configured.
 
 For both types of deployment, you need to download the Splunk Universal forwarder images/packages from [https://www.splunk.com/en_us/download/universal-forwarder.html](https://www.splunk.com/en_us/download/universal-forwarder.html). Packages are available for 64-bit Linux and 64-bit Windows 8.1/Windows 10. Download the RPM package for Linux 64-bit (2.6+ kernel Linux distributions) to `./files/splunk/linux`. If you are deploying Windows nodes, download the MSI package for Windows 64 bit to `./files/splunk/windows`. For a dual Linux/Windows deployment, the images and packages must have same name and version, along with the appropriate extensions, for example:
 
@@ -20,9 +20,9 @@ splunk_architecture_universal_forwarder_package: 'splunkforwarder-7.1.2'
 
 ```
 
-As of Splunk version 7.1, the Splunk universal forwarder must be deployed with a password. This password is specified using the variable `splunk_uf_password` which is configured in `group_vars/vault`.
+As of Splunk version 7.1, the Splunk universal forwarder must be deployed with a password. This password is specified using the variable `splunk_uf_password` which is configured in `group_vars/all/vault`.
 
-If you are using a standalone Splunk deployment, you must specify the list of indexers using the variable `splunk_architecture_forward_servers` in `group_vars/vars`, for example:
+If you are using a standalone Splunk deployment, you must specify the list of indexers using the variable `splunk_architecture_forward_servers` in `group_vars/all/vars`, for example:
 
 ```
 splunk_architecture_forward_servers:

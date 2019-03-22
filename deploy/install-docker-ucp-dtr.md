@@ -2,7 +2,7 @@
 
 The following playbooks are used to install Docker UCP and DTR on RHEL VMs.
 
--   `playbooks/config_storage_driver.yml` prepares drives for local Docker volumes and container images. It also configures Docker with either the `overlay2` storage driver (the default) or the `devicemapper` storage driver, depending on the value of the `docker_storage_driver` variable in `group_vars/vars`. This playbook was previously called `playbooks/config_docker_lvs.yml` in earlier releases of the solution.
+-   `playbooks/config_storage_driver.yml` prepares drives for local Docker volumes and container images. It also configures Docker with either the `overlay2` storage driver (the default) or the `devicemapper` storage driver, depending on the value of the `docker_storage_driver` variable in `group_vars/all/vars`. This playbook was previously called `playbooks/config_docker_lvs.yml` in earlier releases of the solution.
 -   `playbooks/install_docker.yml` installs Docker along with all of its dependencies.
 -   `playbooks/install_rsyslog.yml` installs and configures **rsyslog** in the logger node and in all Docker nodes. The logger node will be configured to receive all `syslogs` on port 514 and the Docker nodes will be configured to send all logs (including container logs) to the logger node.
 -   `playbooks/docker_post_config.yml` performs a variety of tasks to complete the installation of the Docker environment, including configuration of the HTTP/HTTPS proxies, if any, and installation of the VMware vSphere Storage for Docker volume plugin.
