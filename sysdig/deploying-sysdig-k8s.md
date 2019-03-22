@@ -24,7 +24,7 @@ sysdig_access_key: '10****97-9160-****-9061-84bfd0f****0'
 ## Running the playbook
 
 ```
-# cd Docker-SimpliVity
+# cd Docker-Synergy
 # ansible-playbook -i vm_hosts playbooks/sysdig-k8s-rbac.yml --vault-password-file .vault_pass
 ```
 

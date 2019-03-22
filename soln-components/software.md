@@ -1,8 +1,8 @@
 # Software
 
-The software components used in this Reference Configuration are listed in Table 3 and Table 4.
+The software components used in this Reference Configuration are listed in Table 6 and Table 7.
 
-**Table 3.** Third-party software
+**Table 6.** Third-party software
 
 |Component|Version|
 |:--------|:------|
@@ -13,11 +13,11 @@ The software components used in this Reference Configuration are listed in Table
 |VMware®|ESXi 6.5.0 and vCenter 6.5.0|
 
 
-**Table 4.** HPE Software
+**Table 7.** HPE Software
 
 |Component|Version|
 |:--------|:------|
-|HPE SimpliVity OmniStack|3.7.6|
+|HPE Recovery Manager Central|5.0.1|
 
 ## About Ansible
 

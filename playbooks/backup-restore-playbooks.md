@@ -13,7 +13,3 @@ The following playbooks are used to restore the system:
 -   `playbooks/restore_dtr_metadata.yml` is used to restore DTR metadata
 -   `playbooks/restore_ucp.yml` is used to restore UCP
 
-The playbooks for configuring HPE SimpliVity backup functionality are run as part of `site.yml` by default:
-
--   `playbooks/config_dummy_vms_for_docker_volumes_backup.yml` 
--   `playbooks/config_simplivity_backups.yml` 

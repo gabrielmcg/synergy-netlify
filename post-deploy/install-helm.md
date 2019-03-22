@@ -11,7 +11,7 @@
 ## Playbook
 
 ```
-# cd ~/Docker-SimpliVity
+# cd ~/Docker-Synergy
 # ansible-playbook -i vm_hosts playbooks/install_helm.yml --vault-password-file .vault_pass
 ```
 
@@ -21,12 +21,12 @@ A number of sample charts are delivered with the solution, for the purposes of d
 
 ### Alpine
 
-A simple chart is provided in the `~/Docker-SimpliVity/test/files/helm/alpine` directory to run a single pod of Alpine Linux.
+A simple chart is provided in the `~/Docker-Synergy/test/files/helm/alpine` directory to run a single pod of Alpine Linux.
 
 The `templates/` directory contains a very simple pod resource with a couple of parameters. The `values.yaml` file contains the default values for the `alpine-pod.yaml` template.
 
 ```
-# cd ~/Docker-SimpliVity
+# cd ~/Docker-Synergy
 # helm install test/files/helm/alpine
 ```
 
@@ -47,7 +47,7 @@ old-mole-alpine  1/1    Running  0         0s
 
 ### Nginx
 
-An example chart is provided in the `~/Docker-SimpliVity/test/files/helm/nginx` directory to install a simple nginx server according to the following pattern:
+An example chart is provided in the `~/Docker-Synergy/test/files/helm/nginx` directory to install a simple nginx server according to the following pattern:
 
 - A ConfigMap is used to store the files the server will serve. (`templates/configmap.yaml`)
 - A Deployment is used to create a Replica Set of nginx pods. (`templates/deployment.yaml`)
@@ -56,7 +56,7 @@ An example chart is provided in the `~/Docker-SimpliVity/test/files/helm/nginx` 
 The `values.yaml` exposes a few of the configuration options in the charts.
 
 ```
-# cd ~/Docker-SimpliVity
+# cd ~/Docker-Synergy
 # helm install test/files/helm/nginx
 ```
 

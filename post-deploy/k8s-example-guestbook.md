@@ -20,7 +20,7 @@ When deploying applications, you must be aware that Kubernetes version 1.11 ship
 The playbook for the Kubernetes example guestbook is based on the example taken from the GitHub repo at https://github.com/kubernetes/examples. 
 
 ```
-# cd ~/Docker-Simplivity
+# cd ~/Docker-Synergy
 # ansible-playbook -i vm_hosts test/playbooks/k8s-guestbook.yml --vault-password-file .vault_pass
 ```
 
@@ -28,7 +28,7 @@ You can run the playbook directly, but it can be informative to walk through the
 
 ### Quick start
 ```
-# cd ~/Docker-Simplivity/test/files/k8s-examples/guestbook
+# cd ~/Docker-Synergy/test/files/k8s-examples/guestbook
 # kubectl apply -f redis-master-deployment.yaml
 # kubectl apply -f redis-master-service.yaml
 # kubectl apply -f redis-slave-deployment.yaml
@@ -43,7 +43,7 @@ You can run the playbook directly, but it can be informative to walk through the
 Change to the directory containing the `guestbook` YAML files. 
 
 ```
-# cd ~/Docker-Simplivity/test/files/k8s-examples/guestbook
+# cd ~/Docker-Synergy/test/files/k8s-examples/guestbook
 ```
 
 
@@ -382,6 +382,6 @@ Access the UI using the identified port on any node in your cluster, for example
 A playbook is provided to remove the deployed `guestbook`artifacts.
 
 ```
-# cd ~/Docker-Simplivity
+# cd ~/Docker-Synergy
 # ansible-playbook -i vm_hosts test/playbooks/k8s-guestbook-teardown.yml --vault-password-file .vault_pass
 ```

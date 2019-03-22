@@ -1,6 +1,6 @@
 # Editing the inventory
 
-The inventory is the file named `vm_hosts` in the `~/Docker-SimpliVity` directory. You need to edit this file to describe the configuration you want to deploy.
+The inventory is the file named `vm_hosts` in the `~/Docker-Synergy` directory. You need to edit this file to describe the configuration you want to deploy.
 
 The nodes inside the inventory are organized in groups. The groups are defined by brackets and the group names are static so they must not be changed. Other fields (hostnames, specifications, IP addresses…) are edited to match your setup. The groups are as follows:
 
@@ -65,4 +65,4 @@ The different variables you can use are described in the table below. They are a
 |cpus|Node/Group|Number of CPUs to assign to a VM or a group of VMs|
 |ram|Node/Group|Amount of RAM in MB to assign to a VM or a group of VMs|
 |disk2_usage|Node/Group|Size of the second disk in GB to attach to a VM or a group of VMs. This variable is only mandatory on Docker nodes (UCP, DTR, worker) and NFS node. It is not required for the logger node or the load balancers.|
-|node_policy|Node/Group|HPE SimpliVity backup policy to assign to a VM or a group of VMs. The name has to match one of the backup policies defined in the `group_vars/vars` file described in the section `HPE SimpliVity backup configuration`.|
+

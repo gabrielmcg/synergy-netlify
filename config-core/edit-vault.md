@@ -9,13 +9,11 @@ A sample vault file is provided named `group_vars/vault.sample` that you can use
 docker_ee_url: 'your_url_here'
 vcenter_password: 'xxxx'
 vm_password: 'xxxx'
-
-simplivity_password: 'xxx'
 ucp_password: 'zzzz'
 win_password: 'yourpass'
 sysdig_access_key: 'enter_sysdig_access_key'
-rhn_orgid: "YourOrgId"
-rhn_key: "YourActivationKey"
+rhn_orgid: 'YourOrgId'
+rhn_key: 'YourActivationKey'
 #password for the splunk universal forwarder. Must meet password complexity requirement (see splunk doc)
 splunk_uf_password: 'YourPa$$word12'
 

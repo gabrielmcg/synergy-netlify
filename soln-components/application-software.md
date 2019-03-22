@@ -6,9 +6,9 @@ A number of different logging and monitoring solutions are supported by this sol
 -   Sysdig
 -   Prometheus and Grafana
 
-The application software components used in this Reference Configuration are listed in Table 5.
+The application software components used in this Reference Configuration are listed in Table 8.
 
-**Table 5.** Application software
+**Table 8.** Application software
 
 |Component|Version|
 |:--------|:------|

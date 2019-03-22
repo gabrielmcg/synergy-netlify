@@ -1,6 +1,6 @@
 module.exports = {
   title: 'HPE Enterprise Containers',
-  //base: '/Docker-SimpliVity/',  
+  //base: '/Docker-Synergy/',  
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
@@ -79,8 +79,6 @@ module.exports = {
           'config-core/ansible-config',
           'config-core/edit-inventory',
           'config-core/vmware-config',
-          'config-core/svt-variables-config',
-          'config-core/svt-backup-config',
           'config-core/network-config',
           'config-core/environment-config',
           'config-core/docker-config',
@@ -186,15 +184,14 @@ module.exports = {
         children: [
           'backup-restore/backup-restore',
           'backup-restore/backup-ucp-dtr',
-          'backup-restore/restore-ucp-dtr',
-          'backup-restore/simplivity-backups'
+          'backup-restore/restore-ucp-dtr'
         ]
       },
       {
         title: 'Solution lifecycle management',
         children: [
           'lifecycle/lifecycle',
-          'lifecycle/lifecycle-svt',
+          'lifecycle/lifecycle-syn',
           'lifecycle/lifecycle-vdvs',
           'lifecycle/lifecycle-rhel',
           'lifecycle/lifecycle-docker-ee',

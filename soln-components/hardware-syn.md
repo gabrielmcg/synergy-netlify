@@ -49,7 +49,7 @@ Table 5 provides an overview of how the storage requirements for various compone
 **Table 5.** Storage overview
 
 |**Storage requirement**|**Provided by**|**Storage resource**|
-|-------------|-----------|-----------|
+|:-------------|:-----------|:-----------|
 |VMs|vSphere|HPE 3PAR|
 |Persistent storage for stateful containers running under Docker swarm orchestrator|vSphere Docker Volume plugin|HPE 3PAR|
 |Persistent storage for K8S - production|K8s NFS provisioner configured for 3PAR|HPE 3PAR Virtual File Server|

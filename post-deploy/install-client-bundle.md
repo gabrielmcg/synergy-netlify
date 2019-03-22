@@ -4,7 +4,7 @@
 A convenience playbook is provided to install and apply the client bundle. To run the playbook:
 
 ```
-# cd ~/Docker-SimpliVity
+# cd ~/Docker-Synergy
 # ansible-playbook -i vm_hosts playbooks/install_client_bundle.yml --vault-password-file .vault_pass
 ```
 

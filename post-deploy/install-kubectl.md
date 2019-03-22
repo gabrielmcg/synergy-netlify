@@ -7,7 +7,7 @@ A convenience playbook is provided to make it easy to install `kubectl`. This pl
 To run the playbook:
 
 ```
-# cd ~/Docker-SimpliVity
+# cd ~/Docker-Synergy
 # ansible-playbook -i vm_hosts playbooks/install_kubectl.yml --vault-password-file .vault_pass
 ```
 

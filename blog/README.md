@@ -3,6 +3,6 @@ blog_index: true
 --- 
 # Blog 
 
-Welcome to Express Containers on HPE SimpliVity
+Welcome to Enterprise Containers on HPE Synergy
 
 <BlogIndex />

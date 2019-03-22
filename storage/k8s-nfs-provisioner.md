@@ -32,7 +32,7 @@ In this instance, the server IP is set to the NFS VM that has been deployed.
 Once the prerequisites are satisfied, run the appropriate playbook on your Ansible node:
 
 ```
-# cd ~/Docker-SimpliVity
+# cd ~/Docker-Synergy
 # ansible-playbook -i vm_hosts playbooks/k8s-nfs-provisioner.yml --vault-password-file .vault_pass
 ```
 

@@ -1,6 +1,6 @@
 # Introduction to playbooks
 
-The Ansible playbooks are available to download at [https://github.com/HewlettPackard/Docker-SimpliVity](https://github.com/HewlettPackard/Docker-SimpliVity). Once you have cloned the repository, change directory to `/root/Docker-SimpliVity`.
+The Ansible playbooks are available to download at [https://github.com/HewlettPackard/Docker-Synergy](https://github.com/HewlettPackard/Docker-Synergy). Once you have cloned the repository, change directory to `/root/Docker-Synergy`.
 
 You can use the playbook `site.yml` as the day 0 playbook to deploy the solution. It is simply a wrapper around a number of required and optional playbooks that allow you to configure the deployment to your needs.
 

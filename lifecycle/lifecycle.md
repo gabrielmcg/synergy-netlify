@@ -7,6 +7,6 @@ In this section, we will cover life cycle management of the different components
 -   Monitoring Tools (Splunk or Prometheus and Grafana)
 -   Docker Enterprise Edition Environment
 -   Virtual Machine Operating systems
--   HPE SimpliVity environment
+-   HPE Synergy environment
 
-The general practice and recommendation is to follow a bottom-up approach for updating all components of the environment and making sure the dependencies are met. In our solution, we would start with HPE SimpliVity and end with the monitoring environment. If all components are not being updated at the same time, the same approach can be followed – updating only the components that require updates while adhering to the interdependencies for each component that is being updated.
+The general practice and recommendation is to follow a bottom-up approach for updating all components of the environment and making sure the dependencies are met. In our solution, we would start with HPE Synergy and end with the monitoring environment. If all components are not being updated at the same time, the same approach can be followed – updating only the components that require updates while adhering to the interdependencies for each component that is being updated.
