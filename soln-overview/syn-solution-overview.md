@@ -6,7 +6,7 @@ The HPE Reference Configuration for Docker Containers as a Service on HPE Synerg
 
 **Figure 1.** Solution overview
 
-[Figure 1](syn-solution-overview.md#overview-graphic) provides an overview of the steps used to deploy the solution. Deploying your hardware and HPE SimpliVity is specific to your environment and is not covered here. This document shows you how to:
+[Figure 1](syn-solution-overview.md#overview-graphic) provides an overview of the steps used to deploy the solution. Deploying your hardware and HPE Synergy is specific to your environment and is not covered here. This document shows you how to:
 
 -   Prepare the VM templates
 -   Create the Ansible host

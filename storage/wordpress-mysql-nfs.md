@@ -26,7 +26,7 @@ configuration is the same as used in that section, namely:
 The playbook `test/playbooks/wordpress-mysql-nfs.yml` creates Persistent Volume Claims for both `Wordpress` and `MySQL`, deploys both applications and makes the `WordPress` UI available via a NodePort. 
 
 ```
-# cd ~/Docker-SimpliVity
+# cd ~/Docker-Synergy
 #  ansible-playbook -i vm_hosts ./test/playbooks/wordpress-mysql-nfs.yml --vault-password-file .vault_pass
 ```
 
