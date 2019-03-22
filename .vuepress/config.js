@@ -106,8 +106,7 @@ module.exports = {
           'deploy/create-rhel-vms',
           'deploy/load-balancers',
           'deploy/install-docker-ucp-dtr',
-          'deploy/add-rhel-workers',
-          'deploy/svt-backup-playbooks'
+          'deploy/add-rhel-workers'
         ]
       },
       {
