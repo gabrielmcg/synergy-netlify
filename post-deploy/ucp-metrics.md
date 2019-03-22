@@ -19,7 +19,7 @@ to use the client bundle to access the UCP metrics. To run the playbook:
 
 ```
 # cd ~/Docker-Synergy
-# ansible-playbook -i vm_hosts playbooks/ucp-metrics-prometheus.yml --vault-password-file .vault_pass
+# ansible-playbook -i hosts playbooks/ucp-metrics-prometheus.yml --vault-password-file .vault_pass
 ```
 
 

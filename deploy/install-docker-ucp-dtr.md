@@ -11,9 +11,9 @@ The following playbooks are used to install Docker UCP and DTR on RHEL VMs.
     This playbook has been updated to configure a third drive which is used to hold the data of the persistent volumes created with the NFS provisioner. This default size for this drive is purposefully kept small because using the NFS VM to store persistent volumes is not recommended for production use. However, this can be useful for demo purposes.
 
 -   `playbooks/install_nfs_clients.yml` installs the required packages on the Docker nodes to be able to mount an NFS share.
--   `playbooks/create_main_ucp.yml` installs and configures the first Docker UCP instance on the target node defined by the group `ucp_main` in the `vm_hosts` inventory.
--   `playbooks/scale_ucp.yml` installs and configures additional instances of UCP on the target nodes defined by the group `ucp` in the `vm_hosts` inventory, except for the node defined in the group `ucp_main`.
--   `playbooks/create_main_dtr.yml` installs and configures the first Docker DTR instance on the target node defined by the group `dtr_main` in the `vm_hosts` inventory.
+-   `playbooks/create_main_ucp.yml` installs and configures the first Docker UCP instance on the target node defined by the group `ucp_main` in the `hosts` inventory.
+-   `playbooks/scale_ucp.yml` installs and configures additional instances of UCP on the target nodes defined by the group `ucp` in the `hosts` inventory, except for the node defined in the group `ucp_main`.
+-   `playbooks/create_main_dtr.yml` installs and configures the first Docker DTR instance on the target node defined by the group `dtr_main` in the `hosts` inventory.
 -   `playbooks/config_scheduler.yml` configures the scheduler to prevent regular users (i.e. non-admin users) scheduling containers on the Docker nodes running instances of UCP and DTR.
--   `playbooks/scale_dtr.yml` installs and configures additional instances (or replicas) of DTR on the target nodes defined by the group `dtr` in the `vm_hosts` inventory, with the exception of the node defined in the group `dtr_main`.
+-   `playbooks/scale_dtr.yml` installs and configures additional instances (or replicas) of DTR on the target nodes defined by the group `dtr` in the `hosts` inventory, with the exception of the node defined in the group `dtr_main`.
 -   `playbooks/reconfigure_dtr.yml` is used to reconfigure DTR with the FQDN of the UCP Load Balancer and also enables image scanning.

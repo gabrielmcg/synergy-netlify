@@ -21,7 +21,7 @@ The playbook for the Kubernetes example guestbook is based on the example taken 
 
 ```
 # cd ~/Docker-Synergy
-# ansible-playbook -i vm_hosts test/playbooks/k8s-guestbook.yml --vault-password-file .vault_pass
+# ansible-playbook -i hosts test/playbooks/k8s-guestbook.yml --vault-password-file .vault_pass
 ```
 
 You can run the playbook directly, but it can be informative to walk through the individual files to see what is going on under the covers.
@@ -383,5 +383,5 @@ A playbook is provided to remove the deployed `guestbook`artifacts.
 
 ```
 # cd ~/Docker-Synergy
-# ansible-playbook -i vm_hosts test/playbooks/k8s-guestbook-teardown.yml --vault-password-file .vault_pass
+# ansible-playbook -i hosts test/playbooks/k8s-guestbook-teardown.yml --vault-password-file .vault_pass
 ```

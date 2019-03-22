@@ -76,7 +76,7 @@ ucp_version: '2.2.7'
 
 You must ensure that the UCP admin credentials in your current `group_vars/all/vars` file are those that were in effect when you generated the backup files. If they have changed since then, you must restore the original credentials for the duration of the restore procedure.
 
-**Step 6:** Restore your inventory (`vm_hosts`)
+**Step 6:** Restore your inventory (`hosts`)
 
 Your inventory must reflect the environment that was present when the backup files were created. You can find a copy of the inventory as it was when the backup was taken in the `*.vars.tgz` files.
 
@@ -88,7 +88,7 @@ Your inventory must reflect the environment that was present when the backup fil
 2.  Run the restore playbook
 
     ```
-    ansible-playbook -i vm_hosts restore.yml
+    ansible-playbook -i hosts restore.yml
     ```
 
     You may need to modify `restore.yml` before you run it, depending on what optional components you have deployed. For example, if you have not deployed Splunk, you will need to comment out the line:

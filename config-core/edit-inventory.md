@@ -1,6 +1,6 @@
 # Editing the inventory
 
-The inventory is the file named `vm_hosts` in the `~/Docker-Synergy` directory. You need to edit this file to describe the configuration you want to deploy.
+The inventory is the file named `hosts` in the `~/Docker-Synergy` directory. You need to edit this file to describe the configuration you want to deploy.
 
 The nodes inside the inventory are organized in groups. The groups are defined by brackets and the group names are static so they must not be changed. Other fields (hostnames, specifications, IP addresses…) are edited to match your setup. The groups are as follows:
 

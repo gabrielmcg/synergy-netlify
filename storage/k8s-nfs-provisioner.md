@@ -33,7 +33,7 @@ Once the prerequisites are satisfied, run the appropriate playbook on your Ansib
 
 ```
 # cd ~/Docker-Synergy
-# ansible-playbook -i vm_hosts playbooks/k8s-nfs-provisioner.yml --vault-password-file .vault_pass
+# ansible-playbook -i hosts playbooks/k8s-nfs-provisioner.yml --vault-password-file .vault_pass
 ```
 
 For validation, the playbook creates a test claim and a pod, the pod writes content to a file, the pod is deleted and then

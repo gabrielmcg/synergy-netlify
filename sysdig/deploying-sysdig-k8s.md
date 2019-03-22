@@ -25,7 +25,7 @@ sysdig_access_key: '10****97-9160-****-9061-84bfd0f****0'
 
 ```
 # cd Docker-Synergy
-# ansible-playbook -i vm_hosts playbooks/sysdig-k8s-rbac.yml --vault-password-file .vault_pass
+# ansible-playbook -i hosts playbooks/sysdig-k8s-rbac.yml --vault-password-file .vault_pass
 ```
 
 Using the Sysdig software as a solution (SaaS) website [https://app.sysdigcloud.com](https://app.sysdigcloud.com), you are able to view, analyze and inspect various different dashboards. Initially, you will just see the monitoring information for the infrastructure itself. Deploy a sample application, as detailed in the section `Kubernetes guestbook example with Redis`, and use the Sysdig solution to analyze the different facets of the deployed application.

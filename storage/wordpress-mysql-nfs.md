@@ -27,7 +27,7 @@ The playbook `test/playbooks/wordpress-mysql-nfs.yml` creates Persistent Volume 
 
 ```
 # cd ~/Docker-Synergy
-#  ansible-playbook -i vm_hosts ./test/playbooks/wordpress-mysql-nfs.yml --vault-password-file .vault_pass
+#  ansible-playbook -i hosts ./test/playbooks/wordpress-mysql-nfs.yml --vault-password-file .vault_pass
 ```
 
 The output shows the components created along with the NodePort for the `wordpress` service.

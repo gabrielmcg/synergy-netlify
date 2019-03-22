@@ -21,7 +21,7 @@ The following table shows the variables related to backing up UCP and DTR. All t
 When you backup the swarm, your services and stack definitions are backed up together with the networks definitions. However, Docker volumes or their contents will not be backed up. (If Docker volumes are defined in stacks, they will be re-created when you restore the stacks, but their content will be lost). You can backup the swarm using the playbook named `backup_swarm.yml` which is located in the `playbooks` folder on your Ansible server. The playbook is invoked as follows:
 
 ```
-# ansible-playbook -i vm_hosts playbooks/backup_swarm.yml
+# ansible-playbook -i hosts playbooks/backup_swarm.yml
 ```
 
 This playbook creates two archives in the folder specified by the variable `backup_dest` in `group_vars/all/backups`. By default, the file is named using the following pattern:
@@ -36,7 +36,7 @@ This playbook creates two archives in the folder specified by the variable `back
 You can override the generated file name by defining the variable **backup_name** on the command line when running the playbook. In the example below:
 
 ```
-# ansible-playbook -i vm_hosts playbooks/backup_swarm.yml -e backup_name=my_swarm_backup
+# ansible-playbook -i hosts playbooks/backup_swarm.yml -e backup_name=my_swarm_backup
 ```
 
 The generated files won't have `<vmname>` or `<timestamp>` appended:
@@ -82,7 +82,7 @@ This playbook creates two archives in the folder specified by the variable `back
 You can override the generated file name by defining the variable **backup_name** on the command line when running the playbook. In the example below:
 
 ```
-# ansible-playbook -i vm_hosts playbooks/backup_ucp.yml -e backup_name=my_ucp_backup
+# ansible-playbook -i hosts playbooks/backup_ucp.yml -e backup_name=my_ucp_backup
 ```
 
 The generated files won't have `<vmname>` or `<timestamp>` appended:
@@ -133,7 +133,7 @@ This playbook creates two archives in the folder specified by the variable `back
 You can override the generated file name by defining the variable **backup_name** on the command line when running the playbook. In the example below:
 
 ```
-# ansible-playbook -i vm_hosts playbooks/backup_dtr_metadata.yml -e backup_name=my_dtr_metadata_backup
+# ansible-playbook -i hosts playbooks/backup_dtr_metadata.yml -e backup_name=my_dtr_metadata_backup
 ```
 
 The generated files won't have `<vmname>` or `<timestamp>` appended:
@@ -165,7 +165,7 @@ This playbook creates two archives in the folder specified by the variable `back
 You can override the generated file names by defining the variable **backup_name** on the command line when running the playbook, as shown in the example below:
 
 ```
-# ansible-playbook -i vm_hosts playbooks/backup_dtr_images.yml -e backup_name=my_dtr_data_backup
+# ansible-playbook -i hosts playbooks/backup_dtr_images.yml -e backup_name=my_dtr_data_backup
 ```
 
 The generated files won't have `<vmname>` or `<timestamp>` appended:
@@ -181,7 +181,7 @@ For more information on DTR backups, see the Docker documentation at [https://do
 
 The backup playbooks do not backup the sensitive data in your `group_vars/all/vault` file. The information stored in the `.vars.tgz` files includes backups of the following files:
 
--   **vm_hosts**, a copy of the `vm_hosts` file at the time the backup was taken
+-   **hosts**, a copy of the `hosts` file at the time the backup was taken
 -   **vars**, a copy of your `group_vars/all/vars` file at the time the backup was taken
 -   **meta.yml**, a generated file containing information pertaining to the backup
 

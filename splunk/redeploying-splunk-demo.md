@@ -27,5 +27,5 @@ splunk_demo_vsplunk-opt-splunk-var@Docker_GAB
 Then re-run the playbook on your ansible node.
 
 ```
-ansible-playbook -i vm_hosts playbooks/splunk_demo.yml --vault-password-file .vault_pass
+ansible-playbook -i hosts playbooks/splunk_demo.yml --vault-password-file .vault_pass
 ```

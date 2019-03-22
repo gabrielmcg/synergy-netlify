@@ -23,7 +23,7 @@ disks_specs:
     datastore: "{{ datastores | random }}"
 ```
 
-In this example, the size of the first two drives is specified using the values of the variables `disk1_size` and `disk2_size` that are declared in the `group_vars/all/vars` file. This maintains compatibility with `vm_hosts` inventories from earlier releases of the playbooks. However, it is possible to provide explicit values, depending on your requirements, for the individual UCP, DTR, worker or NFS VMs. For example, you may want to increase the size of the second disk for the NFS VM as this is used to store the DTR images, so the default value of 500GB may not be sufficient to meet your needs.
+In this example, the size of the first two drives is specified using the values of the variables `disk1_size` and `disk2_size` that are declared in the `group_vars/all/vars` file. This maintains compatibility with `hosts` inventories from earlier releases of the playbooks. However, it is possible to provide explicit values, depending on your requirements, for the individual UCP, DTR, worker or NFS VMs. For example, you may want to increase the size of the second disk for the NFS VM as this is used to store the DTR images, so the default value of 500GB may not be sufficient to meet your needs.
 
 In this release, support has been added for configuring a third drive that can be used to hold Kubernetes persistent volume data. The default size (10GB) is set low as the use of the NFS VM for storing persistent volume data is only considered suitable for demo purposes and should not be used in a production environment.
 

@@ -71,7 +71,7 @@ This will configure UCP to send its logs to `hpe-logger.cloudra.local:1514`. You
 
 ## Configuring syslog in ESX
 
-This configuration must be done manually for each ESX server. The syslog server should be the server configured in the [logger] group in your `vm_hosts` inventory. The protocol should be `tcp` and the port `514` as shown in Figure 14.
+This configuration must be done manually for each ESX server. The syslog server should be the server configured in the [logger] group in your `hosts` inventory. The protocol should be `tcp` and the port `514` as shown in Figure 14.
 
  ![ "Configure Syslog on ESXi Hosts"][media-esx-config-syslog-png] 
 

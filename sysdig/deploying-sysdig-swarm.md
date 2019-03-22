@@ -4,7 +4,7 @@ The playbook `playbooks/install_sysdig.yml` is used to automate the configuratio
 
 ```
 # cd Docker-Synergy
-# ansible-playbook -i vm_hosts playbooks/install_sysdig.yml --vault-password-file .vault_pass
+# ansible-playbook -i hosts playbooks/install_sysdig.yml --vault-password-file .vault_pass
 
 ```
 

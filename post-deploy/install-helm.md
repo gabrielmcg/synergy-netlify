@@ -12,7 +12,7 @@
 
 ```
 # cd ~/Docker-Synergy
-# ansible-playbook -i vm_hosts playbooks/install_helm.yml --vault-password-file .vault_pass
+# ansible-playbook -i hosts playbooks/install_helm.yml --vault-password-file .vault_pass
 ```
 
 ## Install sample charts

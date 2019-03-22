@@ -5,7 +5,7 @@ A convenience playbook is provided to install and apply the client bundle. To ru
 
 ```
 # cd ~/Docker-Synergy
-# ansible-playbook -i vm_hosts playbooks/install_client_bundle.yml --vault-password-file .vault_pass
+# ansible-playbook -i hosts playbooks/install_client_bundle.yml --vault-password-file .vault_pass
 ```
 
 The client bundle is downloaded to `~/certs.<<ucp_instance>>.<<ucp_username>>` where `ucp_instance` will 
