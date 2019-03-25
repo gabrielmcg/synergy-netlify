@@ -153,25 +153,23 @@ The following files,  in the `group_vars` folder, contain variable definitions f
 
 |File name |Purpose|
 |-----------|-------|
-|[`ucp.yml`]|Variables defined for all nodes in the [`ucp`] group.
-|[`dtr.yml`]|Variables defined for all nodes in the [`dtr`] group.
-
-
-|[`nfs.yml`]|Variables defined for all nodes in the [`nfs`] group.
-|[`logger.yml`]|Variables defined for all nodes in the [`logger`] group.
-
-|[`loadbalancer.yml`]|Variables defined for all nodes in the [`loadbalancer`] group.
-|[`lbs.yml`]|Variables defined for all nodes in the [`lbs`] group.
-
-|[`vm_wrk_lnx.yml`]|Variables defined for all nodes in the [`vm_wrk_lnx`] group.
-|[`vm_wrk_win.yml`]|Variables defined for all nodes in the [`vm_wrk_win`] group.
-
-
-|[`worker.yml`]|Variables defined for all nodes in the [`worker`] group.
-|[`windows_box.yml`]|Variables defined for all nodes in the [`windows_box`] group.
-
-|[`vms.yml`]|Variables defined for all the VMware Virtual Machines deployed by the solution.
-|[`bms.yml`]|Variables defined for all the bare metal machines deployed by the solution.
+|`ucp.yml`|Variables defined for all nodes in the [`ucp`] group.
+|`dtr.yml`|Variables defined for all nodes in the [`dtr`] group.
+|||
+|`nfs.yml`|Variables defined for all nodes in the [`nfs`] group.
+|`logger.yml`|Variables defined for all nodes in the [`logger`] group.
+|||
+|`loadbalancer.yml`|Variables defined for all nodes in the [`loadbalancer`] group.
+|`lbs.yml`|Variables defined for all nodes in the [`lbs`] group.
+|||
+|`vm_wrk_lnx.yml`|Variables defined for all nodes in the [`vm_wrk_lnx`] group.
+|`vm_wrk_win.yml`|Variables defined for all nodes in the [`vm_wrk_win`] group.
+|||
+|`worker.yml`|Variables defined for all nodes in the [`worker`] group.
+|`windows_box.yml`|Variables defined for all nodes in the [`windows_box`] group.
+|||
+|`vms.yml`|Variables defined for all the VMware Virtual Machines deployed by the solution.
+|`bms.yml`|Variables defined for all the bare metal machines deployed by the solution.
 
 
 
@@ -249,5 +247,5 @@ The different variables you can use are described in the table below. They are a
 |esxi_host|Node|ESXi host where the node will be deployed. If the cluster is configured with DRS, this option will be overridden|
 |cpus|Node/Group|Number of CPUs to assign to a VM or a group of VMs|
 |ram|Node/Group|Amount of RAM in MB to assign to a VM or a group of VMs|
-|disk2_usage|Node/Group|Size of the second disk in GB to attach to a VM or a group of VMs. This variable is only mandatory on Docker nodes (UCP, DTR, worker) and NFS node. It is not required for the logger node or the load balancers.|
+|disk2_size|Node/Group|Size of the second disk in GB to attach to a VM or a group of VMs. This variable is only mandatory on Docker nodes (UCP, DTR, worker) and NFS node. It is not required for the logger node or the load balancers.|
 
