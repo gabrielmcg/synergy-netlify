@@ -7,8 +7,13 @@ The configuration files for Enterprise Containers 2.1 have been significantly re
 The `group_vars/all/vars` and `group_vars/all/vault` files have been moved down a level into the sub-folder named 
 `all`, so the resultant names are now `group_vars/all/vars` and `group_vars/all/vault`. Similarly, the required `backups` file is now located at `group_vars/all/backups`.
 
-A number of new configuration files have been added to support baremetal worker nodes.
 
+A number of new groups have bnen added the inventory with configuration files have been added to support baremetal worker nodes.
+
+- vm_wrk_lnx containing all the linux worker nodes (Virtual Machines)	 
+- bm_wrk_lnx containing all the linux worker nodes (Bare Metal servers)	 
+- vm_wrk_win containing all the Windows worker nodes (Virtual Machines)	 
+- bm_wrk_win containing all the Windows worker nodes (Bare Metal Machines)
 
 
 Other new variables and configuration files introduced in this release of Docker-Synergy include:

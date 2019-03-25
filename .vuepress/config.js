@@ -85,8 +85,7 @@ module.exports = {
           'config-core/docker-config',
           'config-core/orchestrator-config',
           'config-core/k8s-config',
-          'config-core/edit-vault',
-          'config-core/inventory-group-variables',
+          'config-core/edit-vault'
         ]
       },
       {

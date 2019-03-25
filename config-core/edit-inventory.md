@@ -4,43 +4,228 @@ The inventory is the file named `hosts` in the `~/Docker-Synergy` directory. You
 
 The nodes inside the inventory are organized in groups. The groups are defined by brackets and the group names are static so they must not be changed. Other fields (hostnames, specifications, IP addresses…) are edited to match your setup. The groups are as follows:
 
--   `[ucp_main]`: A group containing one single node which will be the main UCP node and swarm leader. Do not add more than one node under this group.
--   `[ucp]`: A group containing all the UCP nodes, including the main UCP node. Typically you should have either 3 or 5 nodes under this group.
--   `[dtr_main]`: A group containing one single node which will be the first DTR node to be installed. Do not add more than one node under this group.
--   `[dtr]`: A group containing all the DTR nodes, including the main DTR node. Typically you should have either 3 or 5 nodes under this group.
--   `[worker]`: A group containing all the Linux worker nodes.
--   `[win_worker]`: A group containing all the Windows worker nodes.
--   `[nfs]`: A group containing one single node which will be the NFS node. Do not add more than one node under this group.
--   `[logger]`: A group containing one single node which will be the logger node. Do not add more than one node under this group.
--   `[local]`: A group containing the local Ansible host. It contains an entry that should not be modified.
 
+## Control plane
+|Group name |Purpose|
+|-----------|-------|
+|`[ucp_main]`|A group containing one single node which will be the main UCP node and swarm leader. Do not add more than one node under this group.
+|`[ucp]`|A group containing all the UCP nodes, including the main UCP node. Typically you should have either 3 or 5 nodes under this group.
+|`[dtr_main]`|A group containing one single node which will be the first DTR node to be installed. Do not add more than one node under this group.
+|`[dtr]`|A group containing all the DTR nodes, including the main DTR node. Typically you should have either 3 or 5 nodes under this group.
+|`[nfs]`|A group containing one single node which will be the NFS node. Do not add more than one node under this group.
+|`[logger]`|A group containing one single node which will be the logger node. Do not add more than one node under this group.
+
+
+
+
+### Load balancers
 If you are deploying the new `active-active` load balancers, using floating IPs managed by `keepalived`:
 
--   `[loadbalancer]`: A group containing the UCP, DTR and any worker load balancers you are deploying.
+|Group name |Purpose|
+|-----------|-------|
+|`[loadbalancer]`|A group containing the UCP, DTR and any worker load balancers you are deploying.
 
 If you are using the legacy, standalone load balancers:
 
--   `[ucp_lb]`: A group containing one single node which will be the load balancer for the UCP nodes. Do not add more than one node under this group.
--   `[dtr_lb]`: A group containing one single node which will be the load balancer for the DTR nodes. Do not add more than one node under this group.
--   `[worker_lb]`: A group containing one single node which will be the load balancer for the worker nodes. Do not add more than one node under this group.
--   `[lbs]`: A group containing all the legacy standalone load balancers. This group will have 3 nodes, also defined individually in the three groups above.
+|Group name |Purpose|
+|-----------|-------|
+|`[ucp_lb]`|A group containing one single node which will be the load balancer for the UCP nodes. Do not add more than one node under this group.
+|`[dtr_lb]`|A group containing one single node which will be the load balancer for the DTR nodes. Do not add more than one node under this group.
+|`[worker_lb]`|A group containing one single node which will be the load balancer for the worker nodes. Do not add more than one node under this group.
+|`[lbs]`|A group containing all the legacy standalone load balancers. This group will have 3 nodes, also defined individually in the three groups above.
 
-There are also a few special groups:
 
--   [docker:children]: A group of groups including all the nodes where Docker will be installed.
--   [vms:children]: A group of groups including all the Virtual Machines involved, with the exception of the local host.
+## Worker nodes
 
-Finally, you will find some variables defined for each group:
+|Group name |Purpose|
+|-----------|-------|
+|`[vm_wrk_lnx]`|A group containing all the Linux worker nodes on Virtual Machines.
+|`[bm_wrk_lnx]`|A group containing all the Bare Metal Linux worker nodes.
+|`[vm_wrk_win]`|A group containing all the Windows worker nodes on Virtual Machines.
+|`[bm_wrk_win]`|A group containing all the Bare Metal Windows worker nodes.
 
--   [vms:vars]: A set of variables defined for all VMs. Currently only the size of the boot disk is defined here.
--   [ucp:vars]: A set of variables defined for all nodes in the [`ucp`] group.
--   [dtr:vars]: A set of variables defined for all nodes in the [`dtr`] group.
--   [worker:vars]: A set of variables defined for all nodes in the [`worker`] group.
--   [win_worker:vars]: A set of variables defined for all nodes in the [`win_worker`] group.
--   [loadbalancer:vars]: A set of variables defined for all nodes in the [`loadbalancer`] group.
--   [lbs:vars]: A set of variables defined for all nodes in the [`lbs`] group.
--   [nfs:vars]: A set of variables defined for all nodes in the [`nfs`] group.
--   [logger:vars]: A set of variables defined for all nodes in the [`logger`] group.
+
+
+## Ansible controller
+
+|Group name |Purpose|
+|-----------|-------|
+|`[local]`|A group containing the local Ansible host. It contains an entry that should not be modified.
+
+
+## Groups of groups
+
+A number of "groups of groups" are used to simplify that handling of sets of nodes:
+
+### `ctlrplane` group
+All the nodes that make up the control plane:
+```
+[ctlrplane:children]
+ucp
+dtr
+lbs
+nfs
+loadbalancer
+logger
+```
+
+### `worker` group
+All the Docker worker nodes:
+
+```
+[worker:children]
+vm_wrk_lnx
+vm_wrk_win
+bm_wrk_lnx
+bm_wrk_win
+```
+
+### `bms` group
+
+All the baremetal nodes:
+
+```
+[bms:children]
+bm_wrk_lnx
+bm_wrk_win
+```
+
+### `docker` group
+
+All the nodes running Docker:
+
+```
+[docker:children]
+ucp
+dtr
+worker
+```
+
+
+### `linux_box` group
+
+All the nodes running Linux:
+
+[linux_box:children]
+ctlrplane
+vm_wrk_lnx
+bm_wrk_lnx
+
+
+### `windows_box` group
+
+All the nodes running Windows:
+
+```
+[windows_box:children]
+bm_wrk_win
+vm_wrk_win
+```
+
+
+# Baremetal variables
+
+
+## group_vars/bm_wrk_lnx.yml
+
+```
+ov_template: 'RedHat760_fcoe_v1.0.2'               
+ov_ansible_connection_name: 'ansibleA'     
+ov_ansible_redundant_connection_name: ansibleB   
+
+disk2: '/dev/mapper/mpatha' 
+disk2_part: '/dev/mapper/mpatha1'
+fcoe_devices: ['ens3f2','ens3f3']
+```
+
+## group_vars/bm_wrk_win.yml
+
+```
+ov_template: 'Windows Worker Node (Gen9)'  
+ov_ansible_connection_name: 'Ansible-A'    
+ov_ansible_redundant_connection_name: 'Ansible-B'   
+```
+
+# Inventory group variables
+
+The following files,  in the `group_vars` folder, contain variable definitions for each group. 
+
+
+|File name |Purpose|
+|-----------|-------|
+|[`ucp.yml`]|Variables defined for all nodes in the [`ucp`] group.
+|[`dtr.yml`]|Variables defined for all nodes in the [`dtr`] group.
+
+
+|[`nfs.yml`]|Variables defined for all nodes in the [`nfs`] group.
+|[`logger.yml`]|Variables defined for all nodes in the [`logger`] group.
+
+|[`loadbalancer.yml`]|Variables defined for all nodes in the [`loadbalancer`] group.
+|[`lbs.yml`]|Variables defined for all nodes in the [`lbs`] group.
+
+|[`vm_wrk_lnx.yml`]|Variables defined for all nodes in the [`vm_wrk_lnx`] group.
+|[`vm_wrk_win.yml`]|Variables defined for all nodes in the [`vm_wrk_win`] group.
+
+
+|[`worker.yml`]|Variables defined for all nodes in the [`worker`] group.
+|[`windows_box.yml`]|Variables defined for all nodes in the [`windows_box`] group.
+
+|[`vms.yml`]|Variables defined for all the VMware Virtual Machines deployed by the solution.
+|[`bms.yml`]|Variables defined for all the bare metal machines deployed by the solution.
+
+
+
+These group files facilitate more sophisticated settings, such as additional drives and additional network interfaces. For example, here is the `group_vars/nfs.yml` file.
+
+```
+networks:
+  - name:  '{{ vm_portgroup }}'
+    ip:  "{{ ip_addr | ipaddr('address') }}"
+    netmask: "{{ ip_addr | ipaddr('netmask') }}"
+    gateway: "{{ gateway }}"
+ 
+disks_specs:
+  - size_gb:  '{{ disk1_size }}'
+    type: thin
+    datastore: "{{ datastores | random }}"
+  - size_gb: '{{ disk2_size }}'
+    type: thin
+    datastore: "{{ datastores | random }}"
+  - size_gb: 10
+    type: thin
+    datastore: "{{ datastores | random }}"
+```
+
+In this example, the size of the first two drives is specified using the values of the variables `disk1_size` and `disk2_size` that are declared in the `group_vars/all/vars` file. This maintains compatibility with `hosts` inventories from earlier releases of the playbooks. However, it is possible to provide explicit values, depending on your requirements, for the individual UCP, DTR, worker or NFS VMs. For example, you may want to increase the size of the second disk for the NFS VM as this is used to store the DTR images, so the default value of 500GB may not be sufficient to meet your needs.
+
+In this release, support has been added for configuring a third drive that can be used to hold Kubernetes persistent volume data. The default size (10GB) is set low as the use of the NFS VM for storing persistent volume data is only considered suitable for demo purposes and should not be used in a production environment.
+
+In the following example, the `group_vars/nfs.yml` has been modified to configure the NFS VM with a 50GB boot disk, a 500GB drive for DTR images and an 800GB drive for Kubernetes persistent volumes data.
+
+```
+networks:
+  - name:  '{{ vm_portgroup }}'
+    ip:  "{{ ip_addr | ipaddr('address') }}"
+    netmask: "{{ ip_addr | ipaddr('netmask') }}"
+    gateway: "{{ gateway }}"
+ 
+disks_specs:
+  - size_gb: 50
+    type: thin
+    datastore: "{{ datastores | random }}"
+  - size_gb: 500
+    type: thin
+    datastore: "{{ datastores | random }}"
+  - size_gb: 800
+    type: thin
+    datastore: "{{ datastores | random }}"
+```
+
+Note: The number of drives and the purpose of each drive is determined by the role of the VM and the specific playbooks that uses the information. The first disk is always used as the boot disk, irrespective of VM role, while the purpose of the second or third disk is specific to the role.
+
+
+
+# Overriding group variables
 
 If you wish to configure your nodes with different specifications to the ones defined by the group, it is possible to declare the same variables at the node level, overriding the group value. For instance, you could have one of your workers with higher specifications by setting:
 
