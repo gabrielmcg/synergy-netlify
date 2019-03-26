@@ -125,7 +125,7 @@ vm_wrk_win
 
 # Baremetal variables
 When deploying baremetal worker nodes, you must specify the name of the server profile template, together 
-with the names of the two connections for your Ansible controller. If you have multiple serve types in your Synergy setup, you will need to set the name of the server profile template for each individual baremetal node, typically on the node decalration in the inventory file itself, rather than using a common name in the group file.
+with the names of the two connections for your Ansible controller. If you have multiple server types in your HPE Synergy setup, you will need to set the name of the server profile template for each individual baremetal node, typically on the node decalration in the inventory file itself, rather than using a common name in the group file.
 
 ## Baremetal Linux variables
 Variables specific to baremetal Linux worker nodes are specified in `group_vars/bm_wrk_lnx.yml`

@@ -1,8 +1,8 @@
-# Create the Ansible node
+# Create the Ansible node on RHEL
 
 The Ansible node will act as the driver to automate the provisioning of the environment and it is essential that it is properly installed.
 
-1.  Create a Virtual Machine and install your preferred OS (in this example, and for the sake of simplicity, RHEL 7 will be used). The rest of the instructions assume that, if you use a different OS, you understand the possible differences in syntax for the provided commands. If you use RHEL 7, select `Infrastructure Server` as the base environment and the `Guests Agents` add-on during the installation.
+1.  Create a Virtual Machine and install RHEL 7. select `Infrastructure Server` as the base environment and the `Guests Agents` add-on during the installation.
 
 2.  Log in to the `root` account and create an SSH key pair. Do not protect the key with a passphrase (unless you want to use `ssh-agent`).
 
