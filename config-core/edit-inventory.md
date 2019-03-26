@@ -105,12 +105,12 @@ worker
 ### `linux_box` group
 
 All the nodes running Linux:
-
+```
 [linux_box:children]
 ctlrplane
 vm_wrk_lnx
 bm_wrk_lnx
-
+```
 
 ### `windows_box` group
 
@@ -124,9 +124,11 @@ vm_wrk_win
 
 
 # Baremetal variables
+When deploying baremetal worker nodes, you must specify the name of the server profile template, together 
+with the names of the two connections for your Ansible controller. If you have multiple serve types in your Synergy setup, you will need to set the name of the server profile template for each individual baremetal node, typically on the node decalration in the inventory file itself, rather than using a common name in the group file.
 
-
-## group_vars/bm_wrk_lnx.yml
+## Baremetal Linux variables
+Variables specific to baremetal Linux worker nodes are specified in `group_vars/bm_wrk_lnx.yml`
 
 ```
 ov_template: 'RedHat760_fcoe_v1.0.2'               
@@ -138,7 +140,9 @@ disk2_part: '/dev/mapper/mpatha1'
 fcoe_devices: ['ens3f2','ens3f3']
 ```
 
-## group_vars/bm_wrk_win.yml
+## Baremetal Windows variables
+
+Variables specific to baremetal Windows worker nodes are specified in `group_vars/bm_wrk_win.yml`
 
 ```
 ov_template: 'Windows Worker Node (Gen9)'  
