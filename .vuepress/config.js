@@ -142,7 +142,8 @@ module.exports = {
         title: 'Deploying bare metal workers',
         children: [
           'deploy-bm/bm-intro',
-          'deploy-bm/building-golden-images'
+          'deploy-bm/rhel-golden-images',
+          'deploy-bm/windows-golden-images'
         ]
       },
 
