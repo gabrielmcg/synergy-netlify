@@ -13,7 +13,7 @@ When it comes to the provisioning of bare metal servers, the Ansible playbooks c
 
 When it comes to the provisioning of bare-metal servers, the Ansible playbooks create Server Profiles (SP) based on specified SPT and assign the server profiles to physical compute modules in the Synergy enclosures. The provisioning of the operating system is done when the server profile is applied using the Image Streamer OSDP specified in the SPT. Once the servers are provisioned, they are powered on by the playbooks.
 
-The playbook responsible for the provisioning of the bare metal servers use the following information stored in Ansible variables for each worker node:
+The playbook responsible for the provisioning of the bare metal servers uses the following information stored in Ansible variables for each worker node:
 
 - **ov_template:** The name of the SPT to use when creating the SP for this compute module
 - **ov_ansible_connection_name** and **ov\_ansible\_redundant\_connection\_name:** The names of the network connections in the server profile template that maps to the network where the Ansible controller node resides. Currently redundant connections are supported so you must specify two connections on the Ansible network/VLAN
@@ -41,8 +41,6 @@ Note the difference in the Linux template names for the separate Server Hardware
 ![ "HPE OneView Server Hardware Types"][media-oneview-server-hardware-types]
 
 **Figure.** HPE OneView Server Hardware Types
-
-
 
 
 
