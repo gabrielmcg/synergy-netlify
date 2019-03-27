@@ -128,7 +128,7 @@ module.exports = {
         ]
       },
       {
-        title: 'Deploying Windows workers',
+        title: 'Deploying Windows VM workers',
         children: [
           'deploy-win/deploying-windows-workers',
           'deploy-win/create-template-win',
@@ -138,6 +138,13 @@ module.exports = {
           'deploy-win/lifecycle-windows'
         ]
       },
+      {
+        title: 'Deploying bare metal workers',
+        children: [
+          'deploy-bm/bm-intro'
+        ]
+      },
+
       {
         title: 'Deploying Sysdig monitoring',
         children: [

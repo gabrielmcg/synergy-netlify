@@ -18,6 +18,11 @@ The software components used in this Reference Configuration are listed in Table
 |Component|Version|
 |:--------|:------|
 |HPE Recovery Manager Central|5.0.1|
+|HPE Synergy OneView|4.10|
+|HPE Image Streamer|4.10|
+
+
+
 
 ## About Ansible
 

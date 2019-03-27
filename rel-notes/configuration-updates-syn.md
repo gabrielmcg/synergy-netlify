@@ -4,7 +4,7 @@
 ## Enterprise Containers 2.1
 
 The configuration files for Enterprise Containers 2.1 have been significantly reorganized and extended.
-The `group_vars/all/vars` and `group_vars/all/vault` files have been moved 
+The `vars` and `vault` files have been moved 
 down a level into the sub-folder named 
 `all`, so the resultant names are now `group_vars/all/vars` and `group_vars/all/vault`. 
 Similarly, the required `backups` file is now located at `group_vars/all/backups`.
@@ -12,23 +12,14 @@ Similarly, the required `backups` file is now located at `group_vars/all/backups
 
 A number of new groups have been added to the inventory, together with corresponding configuration files:
 
-- vm_wrk_lnx containing all the linux worker nodes (Virtual Machines)	 
-- bm_wrk_lnx containing all the linux worker nodes (Bare Metal servers)	 
-- vm_wrk_win containing all the Windows worker nodes (Virtual Machines)	 
-- bm_wrk_win containing all the Windows worker nodes (Bare Metal Machines)
+- `vm_wrk_lnx` containing all the linux worker nodes (Virtual Machines)	 
+- `bm_wrk_lnx` containing all the linux worker nodes (Bare Metal servers)	 
+- `vm_wrk_win` containing all the Windows worker nodes (Virtual Machines)	 
+- `bm_wrk_win` containing all the Windows worker nodes (Bare Metal Machines)
 
 
-Group variables there were previously present in the inventory file have been mobed to their own standalone
-files.
-
-Other new variables and configuration files introduced in this release of Docker-Synergy include:
-
-
-
-Deprecated variables and files:
-
-
-
+Group variables there were previously present in the inventory file have been moved to their own standalone
+files. For more details on configuration changes, see the section `Editing the inventory'.
 
 
 ## Express Containers 2.1

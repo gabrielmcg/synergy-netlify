@@ -34,7 +34,7 @@ A Container is guaranteed to have as much CPU as specified in its `request`, but
 - One AWS vCPU
 - One GCP Core
 - One Azure vCore
-- One Hyperthread on a bare-metal Intel processor with Hyperthreading
+- One Hyperthread on a bare metal Intel processor with Hyperthreading
 
 Fractional values are allowed. A Container that requests 0.5 CPU is guaranteed half as much CPU as a Container that requests 1 CPU. You can use the suffix `m` to mean `milli` or one thousandth of a CPU. For example, 100m CPU and 0.1 CPU are the same.
 

@@ -36,6 +36,8 @@ If you are using the legacy, standalone load balancers:
 
 
 ## Worker nodes
+Individual groups facilitate the configuration of worker nodes, depending on the OS and whether the nodes are Virtual Machines or baremetal. 
+
 
 |Group name |Purpose|
 |-----------|-------|
@@ -55,7 +57,7 @@ If you are using the legacy, standalone load balancers:
 
 ## Groups of groups
 
-A number of "groups of groups" are used to simplify that handling of sets of nodes:
+A number of "groups of groups" simplify the handling of sets of nodes:
 
 ### `ctlrplane` group
 All the nodes that make up the control plane:
@@ -253,3 +255,4 @@ The different variables you can use are described in the table below. They are a
 |ram|Node/Group|Amount of RAM in MB to assign to a VM or a group of VMs|
 |disk2_size|Node/Group|Size of the second disk in GB to attach to a VM or a group of VMs. This variable is only mandatory on Docker nodes (UCP, DTR, worker) and NFS node. It is not required for the logger node or the load balancers.|
 
+s

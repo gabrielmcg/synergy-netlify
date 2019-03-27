@@ -17,6 +17,6 @@ All VMware-related variables are mandatory and are described in the table below.
 |disk2|group_vars/all/vars|UNIX® name of the second disk for the Docker VMs. Typically `/dev/sdb`|
 |disk2_part|group_vars/all/vars|UNIX name of the partition of the second disk for the Docker VMs. Typically `/dev/sdb1`|
 |vsphere_plugin_version|group_vars/all/vars|Version of the vSphere plugin for Docker. The default is 0.21.2 which is the latest version at the time of writing this document. The version of the plugin should match the version of the vSphere Installation Bundle (VIB) that you installed on the ESXi servers.|
-|vm_portgroup|group_vars/all/vars|Used by the playbook `create_vms.yml`, this variable specifies the portgroup connected to the network that connects all the VMs. There is currently only one network.|
+|vm_portgroup|group_vars/all/vars|Used by the playbook `provision_nodes.yml`, this variable specifies the portgroup connected to the network that connects all the VMs. There is currently only one network.|
 
  It is recommended that the template, which is used as the base for all deployed VMs, specifies a network adapter but it is not required. If a network adapter is specified, you should not attach this adapter to a standard switch if the portgroup designated by `vm_portgroup` is connected to a distributed vSwitch. In addition, you should make sure that the adapter specifies `Connect At Power On`.
