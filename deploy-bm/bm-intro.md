@@ -28,6 +28,7 @@ are being deployed.
 ```
 [bm_wrk_lnx]
 clh-worker04 ip_addr='10.60.59.25/16' enclosure='Rack1-Mid-CN759000BZ' bay=8 ov_template='RedHat760_fcoe_gen9_4_v1.0.3'
+
 clh-worker06 ip_addr='10.60.59.27/16' enclosure='Rack1-Top-CN7515048P' bay=5 ov_template='RedHat760_fcoe_gen9_3_v1.0.3'
  
 [bm_wrk_win]
