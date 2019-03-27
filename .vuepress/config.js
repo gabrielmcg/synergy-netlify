@@ -142,7 +142,7 @@ module.exports = {
         title: 'Deploying bare metal workers',
         children: [
           'deploy-bm/bm-intro',
-          'deploy-bm/building-golden-image'
+          'deploy-bm/building-golden-images'
         ]
       },
 
