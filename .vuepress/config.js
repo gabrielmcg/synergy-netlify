@@ -69,8 +69,7 @@ module.exports = {
         children: [
           'prep/verify-prereqs',
           'prep/vsphere-ha',
-          'prep/install-vdvs',
-          'prep/create-ansible-node',          
+          'prep/install-vdvs',     
           'prep/create-ansible-node-fedora',
           'prep/create-rhel-template'
         ]
