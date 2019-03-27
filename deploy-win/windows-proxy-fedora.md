@@ -13,23 +13,26 @@ However, if the deployment is running behind a proxy, you may need to make this 
 1.  Download the script:
 
     ```
-    wget https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1
+    curl https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1 \
+    -o ~/ConfigureRemotingForAnsible.ps1
     ```
 
 2.  Deploy a local HTTP server, enabling port 80, for example:
 
     ```
-    yum install httpd
+    firewall-cmd --permanent --add-port 80/tcp --zone=public
+    firewall-cmd --permanent --change-interface=ens192 --zone=public
+    firewall-cmd --reload
+
+    dnf install httpd
     systemctl enable httpd
     systemctl start httpd
-    firewall-cmd --permanent --add-port 80/tcp --zone=public
-    firewall-cmd --reload
     ```
 
 3.  Copy the downloaded script to the web server:
 
     ```
-    cp ConfigureRemotingForAnsible.ps1 /var/www/html
+    cp ~/ConfigureRemotingForAnsible.ps1 /var/www/html
     ```
 
 4.  Configure the variable to point at the local web server, for example,

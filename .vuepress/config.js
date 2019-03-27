@@ -134,7 +134,7 @@ module.exports = {
           'deploy-win/create-template-win',
           'deploy-win/add-windows-workers',
           'deploy-win/windows-config',
-          'deploy-win/windows-proxy',
+          'deploy-win/windows-proxy-fedora',
           'deploy-win/lifecycle-windows'
         ]
       },
