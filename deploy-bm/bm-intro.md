@@ -41,6 +41,11 @@ Note the difference in the Linux template names for the separate Server Hardware
 
 **Figure.** HPE OneView Server Hardware Types
 
+
+
+
+
+
 [media-oneview-server-hardware-types]:<../media/oneview-server-hardware-types.png> 
 
 
