@@ -16,7 +16,7 @@ Create a Virtual Machine with the following characteristics:
 - **Ethernet Adapter:** VMXNET 3, connected to your Ansible or management network
 
 Install Fedora Server 29 using the appropriate ISO image for the distro (x86 64 bit) and in 
-the `Software Selection` ection, chose:
+the `Software Selection` section, chose:
 
 - **Base Environment:** Fedora Server Edition
 - **Add-Ons for Selected Environment:** Guest Agent
@@ -44,15 +44,17 @@ dnf install -y python3-winrm
  
 cd /usr/bin
 ln -s python3.7 python
-cd
+
  
 # install the python HPE OneView SDK
+cd
 git clone https://github.com/HewlettPackard/python-hpOneView.git
 cd python-hpOneView/
 pip3 install .
-cd
+
  
 # Install the ONeview Ansible Modules
+cd
 git clone https://github.com/HewlettPackard/oneview-ansible.git
  
 # Configure ansible
@@ -61,7 +63,4 @@ export ANSIBLE_LIBRARY=/root/oneview-ansible/library
 export ANSIBLE_MODULE_UTILS=/root/oneview-ansible/library/module_utils
 EOF
 source ~/.bashrc
- 
- 
-  
 ```
