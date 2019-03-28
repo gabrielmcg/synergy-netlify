@@ -2,7 +2,7 @@
 
 ## Prepare Image Streamer with Windows Artifact Bundle
 
-- Download the "HPE - Windows - 2018-10-26.zip" artifact bundle from the GitHub repository at [https://github.com/HewlettPackard/image-streamer-windows](https://github.com/HewlettPackard/image-streamer-windowss). The file is available in the `artifact-bundles` directory.  The artifacts are supported on HPE Image Streamer 4.1 and higher for Windows 2016, 
+- Download the "HPE - Windows - 2018-10-26.zip" artifact bundle from the GitHub repository at [https://github.com/HewlettPackard/image-streamer-windows](https://github.com/HewlettPackard/image-streamer-windows). The file is available in the `artifact-bundles` directory.  The artifacts are supported on HPE Image Streamer 4.1 and higher for Windows 2016, 
 while version 4.2 and higher are required for Windows 2019. This solution has been tested using Windows 2016 on HPE Image Streamer 4.1.
 - Upload the Artifact bundle to the Image Streamer appliance
 - Extract the Artifact Bundle on the Image Streamer appliance
