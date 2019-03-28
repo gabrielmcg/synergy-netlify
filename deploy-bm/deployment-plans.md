@@ -16,7 +16,7 @@ HPE_WIN2016_2019-03-15.zip
 
 In the Image Streamer UI, use the `Add Artifact bundle` button in the `Artifact Bundles` screen to upload the two files. 
 When the upload is finished, select the Artifact bundles corresponding to the files (without the .zip extension) 
-and use the `Action` button to extract artifacts from the bundles, as shown in the following figure.
+and use the `Actions` button to extract artifacts from the bundles, as shown in the following figure.
 
 ![ "Extract bundle"][media-bm-extract-bundle]
 
