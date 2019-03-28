@@ -143,7 +143,8 @@ module.exports = {
         children: [
           'deploy-bm/bm-intro',
           'deploy-bm/rhel-golden-images',
-          'deploy-bm/windows-golden-images'
+          'deploy-bm/windows-golden-images',
+          'deploy-bm/deployment-plans'
         ]
       },
 
