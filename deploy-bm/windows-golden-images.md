@@ -100,13 +100,13 @@ echo S:\ISdeploy\SetupComplete.cmd > C:\Windows\Setup\Scripts\SetupComplete.cmd
 ## Capture the Golden Image
 
 - Determine the OS Volume that was created for the Server Profile created earlier
-    ![ "Server profile"][media-server-profile]
+    ![ "Server profile"][media-bm-win-server-profile]
 
     **Figure.** Server profile
 
 - Navigate to the Image Streamer Golden Images page
 - Select "Create golden image" specifying the OS Volume and the "HPE - Windows - Capture - As-Is" build plan:
-    ![ "Create Golden Image"][media-create-golden-image]
+    ![ "Create Golden Image"][media-bm-win-create-golden-image]
 
     **Figure.** Create Golden Image
 
@@ -116,5 +116,5 @@ echo S:\ISdeploy\SetupComplete.cmd > C:\Windows\Setup\Scripts\SetupComplete.cmd
 
 
 
-[media-server-profile]:<../media/server-profile.png> 
-[media-create-golden-image]:<../media/create-golden-image.png> 
+[media-bm-win-server-profile]:<../media/bm-win-server-profile.png> 
+[media-bm-win-create-golden-image]:<../media/bm-win-create-golden-image.png> 
