@@ -142,9 +142,11 @@ module.exports = {
         title: 'Deploying bare metal workers',
         children: [
           'deploy-bm/bm-intro',
+          'deploy-bm/osdp-custom-attributes',
           'deploy-bm/rhel-golden-images',
           'deploy-bm/windows-golden-images',
-          'deploy-bm/deployment-plans'
+          'deploy-bm/deployment-plans',
+          'deploy/server-profile-templates'
         ]
       },
 

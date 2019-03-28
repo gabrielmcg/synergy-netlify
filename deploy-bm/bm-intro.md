@@ -45,6 +45,9 @@ Note the difference in the Linux template names for the separate Server Hardware
 
 
 
+
+
+
 [media-oneview-server-hardware-types]:<../media/oneview-server-hardware-types.png> 
 
 
