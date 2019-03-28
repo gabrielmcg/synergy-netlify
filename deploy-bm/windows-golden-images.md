@@ -2,34 +2,35 @@
 
 ## Prepare Image Streamer with Windows Artifact Bundle
 
-- Download the "HPE - Windows - 2018-10-26.zip" artifact bundle from https://github.hpe.com/ImageStreamer/image-streamer-windows (
+- Download the "HPE - Windows - 2018-10-26.zip" artifact bundle from the GitHub repository at [https://github.com/HewlettPackard/image-streamer-windows](https://github.com/HewlettPackard/image-streamer-windowss). The file is available in the `artifact-bundles` directory.  The artifacts are supported on HPE Image Streamer 4.1 and higher for Windows 2016, 
+while version 4.2 and higher are required for Windows 2019. This solution has been tested using Windows 2016 on HPE Image Streamer 4.1.
 - Upload the Artifact bundle to the Image Streamer appliance
 - Extract the Artifact Bundle on the Image Streamer appliance
 
 
 ## Create Windows Golden Image
 
-The procedure for creating a Windows Server 2016 golden image are documented in the Image Streamer GitHub repostiory at [https://github.com/HewlettPackard/image-streamer-windows](https://github.com/HewlettPackard/image-streamer-windows). See the appropriate file in the `docs` directory [here](https://github.com/HewlettPackard/image-streamer-windows/raw/v4.2/docs/HPE%20Synergy%20Image%20Streamer%20Microsoft%20Windows%20Artifact%20Bundle%20Documentation%20.pdf).
+The procedure for creating a Windows Server 2016 golden image are documented in the Image Streamer GitHub repostiory at [https://github.com/HewlettPackard/image-streamer-windows](https://github.com/HewlettPackard/image-streamer-windows). See the appropriate file in the `docs` directory [here](https://github.com/HewlettPackard/image-streamer-windows/blob/v4.1/docs/HPE%20Synergy%20Image%20Streamer%20Microsoft%20Windows%20Artifact%20Bundle%20Documentation.pdf).
 
 The instructions are repeated here for convenience, but you should rely on the Image Streamer repository for the definitive version of the documentation.
 
 1. Ensure that you have access to Windows 2016 or 2019 ISO file.
-2. Create a server profile with “HPE - Foundation 1.0 - create empty OS Volume” as OS Deployment plan
+2. Create a server profile with `“HPE - Foundation 1.0 - create empty OS Volume”` as OS Deployment plan
 and a server hardware of desired hardware type (see section on Golden Image Compatibility below). Set
-an appropriate value for volume size in MiB units, say 40000 MiB. The HPE Synergy Server will be
+an appropriate value for volume size in MiB units, say `40000 MiB`. The HPE Synergy Server will be
 configured for access to this empty OS Volume.
 3. Launch iLO Integrated Remote Console of this server and set the Windows 2016 or 2019 ISO file as
 virtual CD-ROM/DVD image file. Power on the server.
 4. Windows should present an option of installing from CD/DVD. Continue with this option.
 5. Install Windows 2016 or 2019.
-6. (Optional) To take a backup of this installation at this stage:
-    a. Shutdown the server
+6. (Optional) To take a backup of this installation at this stage:  
+    a. Shutdown the server  
     b. Perform an as-is capture using "HPE - Windows - Capture - As-Is" build plan to create the "as-is"
-golden image of the OS.
+golden image of the OS.  
     c. Deploy another server with the golden image captured in previous step and boot the server.
 7. Install any additional software or roles if required.
 
-NOTE: The next six steps can be automated using the “PrepareForImageStreamerOSVolumeCapture.ps1” script in “scripts” directory on the github repository where Windows artifact bundles are available for download.
+NOTE: The next six steps can be automated using the “PrepareForImageStreamerOSVolumeCapture.ps1” script in “scripts” directory on the GitHub repository where Windows artifact bundles are available for download.
 
 8. Create a FAT32 partition which will be used by the artifacts for personalization:
     FAT 32 partition can be created either from UI using Disk Management utility (8.1) or using CMD Diskpart commands (8.2).
@@ -67,8 +68,10 @@ NOTE: The next six steps can be automated using the “PrepareForImageStreamerOS
     ```
     reg export HKLM\System\MountedDevices C:\driveletters.reg
     ```
-10. Generalize Windows using sysprep
+10. Generalize Windows using sysprep  
+
     WARNING: This operation is destructive and will remove all configuration. To take backup of the system at this stage, capture an as-is golden image.
+
     Open Command Prompt window and run the following
 
     ```
@@ -97,6 +100,7 @@ echo S:\ISdeploy\SetupComplete.cmd > C:\Windows\Setup\Scripts\SetupComplete.cmd
 15. Capture a golden image using the "HPE - Windows - Capture - As-Is" build plan as described in the following section.
 
 
+
 ## Capture the Golden Image
 
 - Determine the OS Volume that was created for the Server Profile created earlier
@@ -115,6 +119,12 @@ echo S:\ISdeploy\SetupComplete.cmd > C:\Windows\Setup\Scripts\SetupComplete.cmd
 
 
 
+
+## Golden Image Compatibility
+The golden image created using the above method will work only when the image is deployed on server hardware of
+the same model. Specifically, if the number of processors on server where the image is deployed is different from the
+server where the image was captured, server boot after deployment will fail. Also, if the boot controller is moved from
+one Mezzanine slot on the server to another, Windows will not boot correctly.
 
 [media-bm-win-server-profile]:<../media/bm-win-server-profile.png> 
 [media-bm-win-create-golden-image]:<../media/bm-win-create-golden-image.png> 
