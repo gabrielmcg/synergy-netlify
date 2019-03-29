@@ -10,7 +10,7 @@ The Ansible node will act as the driver to automate the provisioning of the envi
     # ssh-keygen
     ```
 
-3.  Configure the following yum repositories, `rhel-7-server-rpms` and `rhel-7-server-extras-rpms` as explained in TODO LINK. The "extras" repo can be enabled as follows:
+3.  Configure the following yum repositories, `rhel-7-server-rpms` and `rhel-7-server-extras-rpms` as explained in `Configure the yum repositories`. The "extras" repo can be enabled as follows:
 
     ```
     # subscription-manager repos --enable=rhel-7-server-extras-rpms

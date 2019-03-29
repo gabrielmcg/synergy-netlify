@@ -142,6 +142,7 @@ module.exports = {
         title: 'Deploying bare metal workers',
         children: [
           'deploy-bm/bm-intro',
+          'deploy-bm/playbooks-configuration',
           'deploy-bm/osdp-custom-attributes',
           'deploy-bm/rhel-golden-images',
           'deploy-bm/windows-golden-images',
