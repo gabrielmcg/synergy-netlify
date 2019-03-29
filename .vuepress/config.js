@@ -146,7 +146,7 @@ module.exports = {
           'deploy-bm/rhel-golden-images',
           'deploy-bm/windows-golden-images',
           'deploy-bm/deployment-plans',
-          'deploy/server-profile-templates'
+          'deploy-bm/server-profile-templates'
         ]
       },
 
