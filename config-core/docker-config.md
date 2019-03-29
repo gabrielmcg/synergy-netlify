@@ -14,6 +14,6 @@ All Docker-related variables are mandatory and are described in the following ta
 |license_file|group_vars/all/vars|Full path to your Docker EE license file on your Ansible host. The license file is available from the Docker Store|
 |ucp_username|group_vars/all/vars|Username of the administrator user for UCP and DTR, typically `admin`.|
 |ucp_password|**group_vars/all/vault**|The password for the `ucp_username` account.|
-|docker_storage_driver|group_vars/all/vars|Storage driver for Docker nodes. Accepted values are `overlay2` (the default) and `devicemapper`.|
+|docker_storage_driver|group_vars/all/vars|Storage driver for Docker nodes. Accepted values are `overlay2` (the default) and `devicemapper`. For RHEL 7.6, only `overlay2` is supported.|
 
 To see how to use customer-supplied certificates with UCP and DTR, see Appendix B.

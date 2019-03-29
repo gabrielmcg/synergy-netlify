@@ -2,7 +2,7 @@
 
 The Splunk demo deployment, whilst fully featured, is severely restricted in the amount of data it can process. Once this limit has been reached, often after running for just one or two days, it is necessary to re-deploy the application if you want to continue experimenting with the demo.
 
-Before you redeploy, it is necessary to remove the corresponing Docker stack and delete the associated volumes.
+Before you redeploy, it is necessary to remove the corresponding Docker stack and delete the associated volumes.
 
 ```
 # ssh hpe-ucp02

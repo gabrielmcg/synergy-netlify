@@ -33,11 +33,11 @@ In general, it should not be necessary to modify this file, but the variables ar
 
 |Variable|File|Description|
 |:-------|:---|:----------|
-|ansible_user|**group_vars/win_worker.yml**|Defaults to the Windows user account `win_username` as specified in `group_vars/all/vars` |
-|ansible_password|**group_vars/win_worker.yml**|Defaults to the Windows user password `win_password` as specified in `group_vars/all/vault`|
-|ansible_port|**group_vars/win_worker.yml**|5986|
-|ansible_connection|**group_vars/win_worker.yml**|winrm|
-|ansible_winrm_server_cert_validation|**group_vars/win_worker.yml**|Defaults to `ignore`|
-|ansible_winrm_operation_timeout_sec|**group_vars/win_worker.yml**|Defaults to `250`|
-|ansible_winrm_read_timeout_sec|**group_vars/win_worker.yml**|Defaults to `300`|
-|windows_timezone|**group_vars/win_worker.yml**|Defaults to `15`|
+|ansible\_user|**group_vars/win_worker.yml**|Defaults to the Windows user account `win_username` as specified in `group_vars/all/vars` |
+|ansible\_password|**group_vars/win_worker.yml**|Defaults to the Windows user password `win_password` as specified in `group_vars/all/vault`|
+|ansible\_port|**group_vars/win_worker.yml**|5986|
+|ansible\_connection|**group_vars/win_worker.yml**|winrm|
+|ansible\_winrm_server_cert_validation|**group_vars/win_worker.yml**|Defaults to `ignore`|
+|ansible\_winrm_operation_timeout_sec|**group_vars/win_worker.yml**|Defaults to `250`|
+|ansible\_winrm_read_timeout_sec|**group_vars/win_worker.yml**|Defaults to `300`|
+|windows\_timezone|**group_vars/win_worker.yml**|Defaults to `15`. Valid values are available at https://msdn.microsoft.com/en-us/library/ms912391.aspx|
