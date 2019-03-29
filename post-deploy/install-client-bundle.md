@@ -1,14 +1,14 @@
 # Installing the client bundle
 
 
-A convenience playbook is provided to install and apply the client bundle. To run the playbook:
+A convenience playbook is provided to install and apply the client bundle on the Ansible controller. To run the playbook:
 
 ```
 # cd ~/Docker-Synergy
 # ansible-playbook -i hosts playbooks/install_client_bundle.yml --vault-password-file .vault_pass
 ```
 
-The client bundle is downloaded to `~/certs.<<ucp_instance>>.<<ucp_username>>` where `ucp_instance` will 
+The client bundle is downloaded to `~/certs.<<ucp_instance>>.<<ucp_username>>` on the Ansible controller where `ucp_instance` will 
 be specific to the cluster you are running against, for example, `hpe2-ucp01` and the `ucp-username` is typically `admin`.
 
 The playbook downloads the client bundle, but does not configure it for use. Change to the download folder
