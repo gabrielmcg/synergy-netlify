@@ -112,7 +112,7 @@ leave the `Desired Capacity` blank. This will allow the `/var` partition to use 
 26. Copy the SSH public key from your Ansible box. This will allow your Ansible node to SSH without the need for a password to all the bare metal REHL nodes.
 
 ```
-ssh-copy-id root@<IP of your VM_Template>
+ssh-copy-id root@<IP of your bare metal node>
 ```
 
 27. Gracefully shut down the host.
