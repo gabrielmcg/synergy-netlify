@@ -12,7 +12,7 @@
 
 
 
-When it comes to the provisioning of bare-metal servers, the Ansible playbooks create Server Profiles (SP) based on specified SPT and assign the server profiles to physical compute modules in the Synergy enclosures. The provisioning of the operating system is done when the server profile is applied using the Image Streamer OSDP specified in the SPT. Once the servers are provisioned, they are powered on by the playbooks.
+When it comes to the provisioning of bare-metal servers, the Ansible playbooks create Server Profiles (SP) based on specified Server Profile Templates (SPT) and assign the server profiles to physical compute modules in the Synergy enclosures. The provisioning of the operating system is done when the server profile is applied using the Image Streamer OSDP specified in the SPT. Once the servers are provisioned, they are powered on by the playbooks.
 
 The playbook responsible for the provisioning of the bare metal servers uses the following information stored in Ansible variables for each worker node:
 
@@ -43,6 +43,8 @@ Note the difference in the Linux template names for the separate Server Hardware
 
 **Figure.** HPE OneView Server Hardware Types
 
+
+ Common variables for all Windows nodes (VM and bare metal) are specified in the file `group_vars/windows_box.yml`. Windows VM-specific variables are in `group_vars/vm_wrk_win.yml` while Windows bare metal variables are in `group_vars/bm_wrk_win.yml`
 
 
 

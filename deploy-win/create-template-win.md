@@ -1,4 +1,4 @@
-# Create the Windows Template
+# Create the Windows VM Template
 
 To create the Windows VM Template that you will use as the base for all your Windows worker nodes, you will first create a Virtual Machine with the OS installed and then convert the Virtual Machine to a VM Template. The VM Template is created as lean as possible, with any additional software installs and/or system configuration performed subsequently using Ansible.
 
