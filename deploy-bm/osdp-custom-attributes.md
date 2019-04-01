@@ -1,7 +1,7 @@
 # OS Deployment Plan Custom Attributes
 
 
-## RHEL 0S Deployment Plan
+## RHEL OS Deployment Plan
 
 Currently, the code responsible for the provisioning of server profiles expects the OS Deployment Plans to expose two and 
 only two custom attributes named 'NIC1' and 'NIC2'. This means the server profiles templates using the OSBP will only 
@@ -33,7 +33,7 @@ Again, these non-visible custom attributes are all hard-coded to specific values
 **Figure.** Deployment Plan attributes
 
 
-## Windows 2016 0S Deployment Plan
+## Windows 2016 OS Deployment Plan
 
 
 The following figure shows the Windows 2016 OS Deployment Plan shipping with this solution where only the NIC1 and NIC2 attributes are exposed but additional custom attributes are present and used to configure the Windows OS during deployment.  Among other things, the password for the administrative user, the desired Power Plan, Remote Desktop settings, and the Windows Product Key are specified using custom attributes.  
