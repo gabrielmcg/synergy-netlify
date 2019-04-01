@@ -34,17 +34,18 @@ If you are using the legacy, standalone load balancers:
 |`[worker_lb]`|A group containing one single node which will be the load balancer for the worker nodes. Do not add more than one node under this group.
 |`[lbs]`|A group containing all the legacy standalone load balancers. This group will have 3 nodes, also defined individually in the three groups above.
 
+**Note:** Even if you are using the new `[loadbalancer]` group, you must still declare the legacy group `[lbs]` and its sub-groups in your inventory.
 
 ## Worker nodes
-Individual groups facilitate the configuration of worker nodes, depending on the OS and whether the nodes are Virtual Machines or baremetal. 
+Individual groups facilitate the configuration of worker nodes, depending on the OS and whether the nodes are Virtual Machines or bare metal. 
 
 
 |Group name |Purpose|
 |-----------|-------|
-|`[vm_wrk_lnx]`|A group containing all the Linux worker nodes on Virtual Machines.
-|`[bm_wrk_lnx]`|A group containing all the Bare Metal Linux worker nodes.
-|`[vm_wrk_win]`|A group containing all the Windows worker nodes on Virtual Machines.
-|`[bm_wrk_win]`|A group containing all the Bare Metal Windows worker nodes.
+|`[vm_wrk_lnx]`|A group containing all the Linux worker nodes on Virtual Machines.|
+|`[bm_wrk_lnx]`|A group containing all the bare metal Linux worker nodes.|
+|`[vm_wrk_win]`|A group containing all the Windows worker nodes on Virtual Machines.|
+|`[bm_wrk_win]`|A group containing all the bare metal Windows worker nodes.|
 
 
 
@@ -84,7 +85,7 @@ bm_wrk_win
 
 ### `bms` group
 
-All the baremetal nodes:
+All the bare metal nodes:
 
 ```
 [bms:children]
@@ -125,12 +126,12 @@ vm_wrk_win
 ```
 
 
-# Baremetal variables
-When deploying baremetal worker nodes, you must specify the name of the server profile template, together 
-with the names of the two connections for your Ansible controller. If you have multiple server types in your HPE Synergy setup, you will need to set the name of the server profile template for each individual baremetal node, typically on the node decalration in the inventory file itself, rather than using a common name in the group file.
+# Bare metal variables
+When deploying bare metal worker nodes, you must specify the name of the server profile template, together 
+with the names of the two connections for your Ansible controller. If you have multiple server types in your HPE Synergy setup, you will need to set the name of the server profile template for each individual bare metal node, typically on the node decalration in the inventory file itself, rather than using a common name in the group file.
 
-## Baremetal Linux variables
-Variables specific to baremetal Linux worker nodes are specified in `group_vars/bm_wrk_lnx.yml`
+## Bare metal Linux variables
+Variables specific to bare metal Linux worker nodes are specified in `group_vars/bm_wrk_lnx.yml`
 
 ```
 ov_template: 'RedHat760_fcoe_v1.0.2'               
@@ -142,9 +143,9 @@ disk2_part: '/dev/mapper/mpatha1'
 fcoe_devices: ['ens3f2','ens3f3']
 ```
 
-## Baremetal Windows variables
+## Bare metal Windows variables
 
-Variables specific to baremetal Windows worker nodes are specified in `group_vars/bm_wrk_win.yml`
+Variables specific to bare metal Windows worker nodes are specified in `group_vars/bm_wrk_win.yml`
 
 ```
 ov_template: 'Windows Worker Node (Gen9)'  
@@ -159,20 +160,20 @@ The following files,  in the `group_vars` folder, contain variable definitions f
 
 |File name |Purpose|
 |-----------|-------|
-|`ucp.yml`|Variables defined for all nodes in the [`ucp`] group.
-|`dtr.yml`|Variables defined for all nodes in the [`dtr`] group.
+|`ucp.yml`|Variables defined for all UCP nodes.
+|`dtr.yml`|Variables defined for all DTR nodes.
 |||
-|`nfs.yml`|Variables defined for all nodes in the [`nfs`] group.
-|`logger.yml`|Variables defined for all nodes in the [`logger`] group.
+|`nfs.yml`|Variables defined for all NFS nodes.
+|`logger.yml`|Variables defined for all logger nodes.
 |||
 |`loadbalancer.yml`|Variables defined for all nodes in the [`loadbalancer`] group.
-|`lbs.yml`|Variables defined for all nodes in the [`lbs`] group.
+|`lbs.yml`|Variables defined for all nodes in the legacy [`lbs`] group.
 |||
-|`vm_wrk_lnx.yml`|Variables defined for all nodes in the [`vm_wrk_lnx`] group.
-|`vm_wrk_win.yml`|Variables defined for all nodes in the [`vm_wrk_win`] group.
+|`vm_wrk_lnx.yml`|Variables defined for all Linux VM worker nodes.
+|`vm_wrk_win.yml`|Variables defined for all Windows VM worker nodes.
 |||
-|`worker.yml`|Variables defined for all nodes in the [`worker`] group.
-|`windows_box.yml`|Variables defined for all nodes in the [`windows_box`] group.
+|`worker.yml`|Variables defined for all worker nodes.
+|`windows_box.yml`|Variables defined for all Windows nodes.
 |||
 |`vms.yml`|Variables defined for all the VMware Virtual Machines deployed by the solution.
 |`bms.yml`|Variables defined for all the bare metal machines deployed by the solution.

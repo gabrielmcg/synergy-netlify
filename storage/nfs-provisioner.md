@@ -39,42 +39,8 @@ Once the prerequisites are satisfied, run the appropriate playbook on your Ansib
 For validation, the playbook creates a test claim and a pod, the pod writes content to a file, the pod is deleted and then
 the playbook checks that the contents of the file have been persisted.
 
-```
-        kubectl -n {{ nfs_provisioner_namespace }} apply -f /tmp/nfs-provisioner-test-claim.yml
-        kubectl -n {{ nfs_provisioner_namespace }} apply -f /tmp/nfs-provisioner-test-pod.yml
 
-        sleep 5 # need sleep here to allow pod/container to start up and write file
 
-        ssh {{ nfs_provisioner_server_ip }} ls -R {{ nfs_provisioner_server_share }}
-
-        echo '*** delete test-pod ***'
-
-        kubectl -n {{ nfs_provisioner_namespace }} delete -f /tmp/nfs-provisioner-test-pod.yml
-
-        echo '*** cat bar.txt ***'
-
-        ssh {{ nfs_provisioner_server_ip }} "cd {{ nfs_provisioner_server_share }}/{{nfs_provisioner_namespace }}*; cat bar.txt"
-
-        echo '*** delete test-claim ***'
-        kubectl -n {{ nfs_provisioner_namespace }} delete -f /tmp/nfs-provisioner-test-claim.yml
-```
-
-The output of the playbook shows the various steps taking place:
-
-```
-        "pod/test-pod created",
-        "/k8s:",
-        "nfsstorage-test-claim-pvc-e6a09191-3b41-11e9-a830-0242ac11000b",
-        "",
-        "/k8s/nfsstorage-test-claim-pvc-e6a09191-3b41-11e9-a830-0242ac11000b:",
-        "bar.txt",
-        "*** delete test-pod ***",
-        "pod \"test-pod\" deleted",
-        "*** cat bar.txt ***",
-        "hello",
-        "*** delete test-claim ***",
-        "persistentvolumeclaim \"test-claim\" deleted"
-```
 
 
 Running the command `kubectl get sc` will show the storage class named `nfs`:

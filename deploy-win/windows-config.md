@@ -29,15 +29,15 @@ Window-related variables are shown in Table 15. Variables for all Windows nodes 
 |windows_vdvs_path|**group_vars/vm_wrk_win.yml**|Variable used to download vSphere Docker Volume Service software. This variable is combined with `windows_vdvs_version` (below) to generate a URL of the form `<windows_vdvs_path>_<windows_vdvs_version>.zip` to download the software. For example, to download version 0.21, set `windows_vdvs_path` equal to `https://vmware.bintray.com/vDVS/vsphere-storage-for-docker_windows` and `windows_vdvs_version` equal to `0.21` |
 |windows_vdvs_version|**group_vars/vm_wrk_win.yml**|Combined with `windows_vdvs_path`, this variable is used to generate the URL for downloading the software.|
 |windows_vdvs_directory|**group_vars/vm_wrk_win.yml**|Variable used to determine where vDVS software will be unzipped and installed from. The default is `C:\Users\Administrator\Downloads`|
-|windows\_timezone|**vm_wrk_win.yml**|Defaults to `15`. Valid values are available at https://msdn.microsoft.com/en-us/library/ms912391.aspx|
+|windows\_timezone|**group_vars/vm_wrk_win.yml**|Defaults to `15`. Valid values are available at https://msdn.microsoft.com/en-us/library/ms912391.aspx|
 
 
 
 
+## Advanced Windows variables
+ In general, it should not be necessary to modify the following advanced variables, but they are documented in Table 16 for the sake of completeness.
 
- In general, it should not be necessary to modify the following varaibles, but they are documented in Table 16 for the sake of completeness.
-
-**Table 16.** Advanced windows variables
+**Table 16.** Advanced Windows variables
 
 |Variable|File|Description|
 |:-------|:---|:----------|

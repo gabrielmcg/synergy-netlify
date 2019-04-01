@@ -1,6 +1,6 @@
 # Create the Ansible node on Fedora
 
-The Docker Synergy playbooks rely on the  [Ansible Modules for HPE OneView](https://github.com/HewlettPackard/oneview-ansible) project when deploying baremetal resources. 
+The Docker Synergy playbooks rely on the  [Ansible Modules for HPE OneView](https://github.com/HewlettPackard/oneview-ansible) project when deploying bare metal resources. 
 As a result, there is a requirement to run a newer version of Python than is available by default on RHEL. 
 In this release of the Docker Synergy solution, it is required to deploy your Ansible contoller on Fedora, to take advantage of the built-in support for Python 3.
 
@@ -16,12 +16,12 @@ Create a Virtual Machine with the following characteristics:
 - **Ethernet Adapter:** VMXNET 3, connected to your Ansible or management network
 
 Install Fedora Server 29 using the appropriate ISO image for the distro (x86 64 bit) and in 
-the `Software Selection` section, chose:
+the `Software Selection` section, choose:
 
 - **Base Environment:** Fedora Server Edition
 - **Add-Ons for Selected Environment:** Guest Agent
 
-Select your language, keyboard, and timezone settings re-boot when the installation finishes.
+Select your language, keyboard, and timezone settings and re-boot when the installation finishes.
 
 Configure your networking and check your connectivity before moving on to the next section. If you  are 
 operating behind a proxy, configure DNF by editing `/etc/dnf/dnf.conf`, as outlined 

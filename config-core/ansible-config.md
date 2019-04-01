@@ -32,6 +32,5 @@ For the latter group, a set of sample files has been provided to help you get st
 -   `group_vars/all/vault.sample`, a sample vault file.
 -   `group_vars/all/backups.sample`, a sample backup configuration file.
 
-The file `group_vars/win_worker.yml` supports advanced configuration of Windows remote management and in general should not require modification.
 
 You should work from the `root` account for the configuration steps and also later on when you run the playbooks.

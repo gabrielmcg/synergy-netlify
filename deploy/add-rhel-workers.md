@@ -1,4 +1,4 @@
-# Deploying RHEL workers
+# Deploying RHEL VM workers
 
 By default, `site.yml` will automatically deploy any RHEL (and / or Windows) worker nodes that are declared in the inventory.
 

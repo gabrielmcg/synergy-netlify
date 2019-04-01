@@ -10,4 +10,4 @@ To start a deployment, use the following command:
 # ansible-playbook -i hosts site.yml --vault-password-file .vault_pass
 ```
 
-The playbooks should run for approximately 35-40 minutes for the default deployment with 3 UCP, 3 DTR and 3 Linux worker nodes (depending on your server specifications and the size of your environment).
+The playbooks should run for approximately 35-40 minutes for the default deployment with 3 UCP, 3 DTR and 3 Linux VM worker nodes (depending on your server specifications and the size of your environment).

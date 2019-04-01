@@ -6,7 +6,7 @@ All Docker-related variables are mandatory and are described in the following ta
 |:-------|:---|:----------|
 |docker_ee_url|**group_vars/all/vault**|Note: This is a private link to your Docker EE subscription. The value for `docker_ee_url` is the URL documented at the following address: [https://docs.docker.com/engine/installation/linux/docker-ee/rhel/](https://docs.docker.com/engine/installation/linux/docker-ee/rhel/).|
 |docker_ee_reponame|group_vars/all/vars|Specifies the repo to use. For Docker EE 2.1, this variable should be set to the value `stable-18.09`|
-|docker_ee_version|group_vars/all/vars|Can be used to download an exact version of Docker EE from the repo| 
+|docker_ee_version|group_vars/all/vars|Can be used to download an exact version of Docker EE from the repo specified in `docker_ee_reponame`| 
 |rhel_version|group_vars/all/vars|For the Docker installation, this sets the version of your RHEL OS, such as `7.6`. The playbooks were tested with RHEL 7.6.|
 |dtr_version|group_vars/all/vars|Version of the Docker DTR you wish to install. You can use a numeric version or `latest` for the most recent one. The playbooks were tested with 2.6.2|
 |ucp_version|group_vars/all/vars|Version of the Docker UCP you wish to install. You can use a numeric version or `latest` for the most recent one. The playbooks were tested with UCP 3.1.3.|

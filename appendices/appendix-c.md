@@ -98,7 +98,7 @@ splunk_architecture_forward_servers:
 - hpe2-ansible.cloudra.local:9998
 ```
 
-Edit the `group_vars/win_worker.yml` file and specify the list of forward servers to be used by the Windows servers. This list is typically the same as the one used for Linux servers but specifies a TCP port that does not enable SSL.
+Edit the `group_vars/windows_box.yml` file and specify the list of forward servers to be used by the Windows servers. This list is typically the same as the one used for Linux servers but specifies a TCP port that does not enable SSL.
 
 ```
 splunk_architecture_forward_servers:

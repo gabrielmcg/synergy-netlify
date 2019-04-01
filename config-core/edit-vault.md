@@ -25,7 +25,7 @@ backup_passphrase: 'EnterYourSecretpassphrase123'
 
 ```
 
-`rhn_orgid` and `rhn_key` are the credentials needed to subscribe the virtual machines with Red Hat Customer Portal. For more information regarding activation keys, see the following URL: [https://access.redhat.com/articles/1378093](https://access.redhat.com/articles/1378093)
+`rhn_orgid` and `rhn_key` are the credentials needed to subscribe the virtual machines with Red Hat Customer Portal. If these are not supplied, the playbooks will fallback to using the `redhat_user`/`redhat_pass` combination instead. For more information regarding activation keys, see the following URL: [https://access.redhat.com/articles/1378093](https://access.redhat.com/articles/1378093)
 
 To encrypt the vault you need to run the following command:
 
