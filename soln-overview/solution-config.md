@@ -28,5 +28,10 @@ With the addition of the NFS and logging VMs, a total of 13 VMs are created for 
 
 The hybrid deployment will typically add 3 Windows worker nodes to the above configuration, co-located with the Linux workers.
 
+## Bare metal (BM) configuration (Windows and Linux)
+
+This solution leverages HPE Synergy OneView 4.10 and HPE Image Streamer 4.10 to provision bare metal servers with an operating system so they can be added to a Docker/Kubernetes cluster as worker nodes. The bare metal worker nodes can be used in conjuction with VM worker nodes or on their own where only the control plane is virtualized.
+
+
 **Note:** Some of the application software supported by this configuration does not currently run on Windows, for example, the Sysdig Software Agent (see the section `Monitoring with Sysdig`).
 

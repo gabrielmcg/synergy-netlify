@@ -1,13 +1,10 @@
 # New features
 
+This release of the Docker-Synergy playbooks deploys Docker EE 2.1, featuring Kubernetes 1.11.
 
 ## Enterprise Containers 2.1
 
-This release of the Docker-Synergy playbooks deploys Docker EE 2.1, featuring Kubernetes 1.11.
-
 - Bare metal deployment of worker nodes on both Linux and Windows
-
-
 
 ## Features inherited from Express Containers 2.1
 

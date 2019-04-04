@@ -10,16 +10,16 @@ down a level into the sub-folder named
 Similarly, the required `backups` file is now located at `group_vars/all/backups`.
 
 
-A number of new groups have been added to the inventory, together with corresponding configuration files:
+A number of new groups have been added to the inventory, together with the corresponding configuration files:
 
-- `vm_wrk_lnx` containing all the linux worker nodes (Virtual Machines)	 
-- `bm_wrk_lnx` containing all the linux worker nodes (Bare Metal servers)	 
+- `vm_wrk_lnx` containing all the Linux worker nodes (Virtual Machines)	 
+- `bm_wrk_lnx` containing all the Linux worker nodes (Bare Metal servers)	 
 - `vm_wrk_win` containing all the Windows worker nodes (Virtual Machines)	 
 - `bm_wrk_win` containing all the Windows worker nodes (Bare Metal Machines)
 
 
-Group variables there were previously present in the inventory file have been moved to their own standalone
-files. For more details on configuration changes, see the section `Editing the inventory'.
+Group variables that were previously present in the inventory file have been moved to their own standalone
+files. For more details on configuration changes, see the section `Editing the inventory`.
 
 
 ## Express Containers 2.1
