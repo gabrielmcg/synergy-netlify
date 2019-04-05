@@ -127,7 +127,7 @@ vm_wrk_win
 
 
 # Bare metal variables
-When deploying bare metal worker nodes, you must specify the name of the server profile template, together 
+When deploying bare metal worker nodes, you must specify the name of the Server Profile Template (SPT), together 
 with the names of the two connections for your Ansible controller. If you have multiple server types in your HPE Synergy setup, you will need to set the name of the server profile template for each individual bare metal node, typically on the node decalration in the inventory file itself, rather than using a common name in the group file.
 
 ## Bare metal Linux variables
@@ -140,6 +140,7 @@ ov_ansible_redundant_connection_name: ansibleB
 
 disk2: '/dev/mapper/mpatha' 
 disk2_part: '/dev/mapper/mpatha1'
+orchestrator: kubernetes # or swarm
 fcoe_devices: ['ens3f2','ens3f3']
 ```
 
@@ -234,17 +235,25 @@ Note: The number of drives and the purpose of each drive is determined by the ro
 
 If you wish to configure your nodes with different specifications to the ones defined by the group, it is possible to declare the same variables at the node level, overriding the group value. For instance, you could have one of your workers with higher specifications by setting:
 
+In the file `vm_wrk_lnx.yml`:
+
+``` 
+cpus: '4'
+ram: '65536'
+disk2_size: '500'
 ```
-[worker] 
+
+In the `hosts` file:
+
+```
+[vm_wrk_lnx] 
 worker01 ip_addr='10.0.0.10/16' esxi_host='esxi1.domain.local' 
 worker02 ip_addr='10.0.0.11/16' esxi_host='esxi1.domain.local' 
-worker03 ip_addr='10.0.0.12/16' esxi_host='esxi1.domain.local' cpus='16' ram'32768' 
-
-[worker:vars] 
-cpus='4' ram='16384' disk2_size='200'
+worker03 ip_addr='10.0.0.12/16' esxi_host='esxi1.domain.local' cpus='16' ram'131072' 
 ```
 
-In the example above, the `worker03` node would have 4 times more CPU and double the RAM compared to the rest of the worker nodes.
+
+In the example above, the `worker03` Linux VM node would have 4 times more CPU and double the RAM compared to the rest of the Linux VM worker nodes.
 
 The different variables you can use are described in the table below. They are all mandatory unless otherwise specified.
 
