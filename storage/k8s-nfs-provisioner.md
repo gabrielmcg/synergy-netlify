@@ -33,31 +33,13 @@ Once the prerequisites are satisfied, run the appropriate playbook on your Ansib
 
 ```
 # cd ~/Docker-Synergy
-# ansible-playbook -i hosts playbooks/k8s-nfs-provisioner.yml --vault-password-file .vault_pass
+# ansible-playbook -i hosts playbooks/nfs-provisioner.yml --vault-password-file .vault_pass
 ```
 
 For validation, the playbook creates a test claim and a pod, the pod writes content to a file, the pod is deleted and then
 the playbook checks that the contents of the file have been persisted.
 
-```
-        kubectl -n {{ nfs_provisioner_namespace }} apply -f /tmp/nfs-provisioner-test-claim.yml
-        kubectl -n {{ nfs_provisioner_namespace }} apply -f /tmp/nfs-provisioner-test-pod.yml
 
-        sleep 5 # need sleep here to allow pod/container to start up and write file
-
-        ssh {{ nfs_provisioner_server_ip }} ls -R {{ nfs_provisioner_server_share }}
-
-        echo '*** delete test-pod ***'
-
-        kubectl -n {{ nfs_provisioner_namespace }} delete -f /tmp/nfs-provisioner-test-pod.yml
-
-        echo '*** cat bar.txt ***'
-
-        ssh {{ nfs_provisioner_server_ip }} "cd {{ nfs_provisioner_server_share }}/{{nfs_provisioner_namespace }}*; cat bar.txt"
-
-        echo '*** delete test-claim ***'
-        kubectl -n {{ nfs_provisioner_namespace }} delete -f /tmp/nfs-provisioner-test-claim.yml
-```
 
 The output of the playbook shows the various steps taking place:
 

@@ -8,8 +8,8 @@ All Docker-related variables are mandatory and are described in the following ta
 |docker_ee_reponame|group_vars/all/vars|Specifies the repo to use. For Docker EE 2.1, this variable should be set to the value `stable-18.09`|
 |docker_ee_version|group_vars/all/vars|Can be used to download an exact version of Docker EE from the repo specified in `docker_ee_reponame`| 
 |rhel_version|group_vars/all/vars|For the Docker installation, this sets the version of your RHEL OS, such as `7.6`. The playbooks were tested with RHEL 7.6.|
-|dtr_version|group_vars/all/vars|Version of the Docker DTR you wish to install. You can use a numeric version or `latest` for the most recent one. The playbooks were tested with 2.6.2|
-|ucp_version|group_vars/all/vars|Version of the Docker UCP you wish to install. You can use a numeric version or `latest` for the most recent one. The playbooks were tested with UCP 3.1.3.|
+|dtr_version|group_vars/all/vars|Version of the Docker DTR you wish to install. You can use a numeric version or `latest` for the most recent one. The playbooks were tested with 2.6.4|
+|ucp_version|group_vars/all/vars|Version of the Docker UCP you wish to install. You can use a numeric version or `latest` for the most recent one. The playbooks were tested with UCP 3.1.4.|
 |images_folder|group_vars/all/vars|Directory in the NFS server that will be mounted in the DTR nodes and that will host your Docker images.|
 |license_file|group_vars/all/vars|Full path to your Docker EE license file on your Ansible host. The license file is available from the Docker Store|
 |ucp_username|group_vars/all/vars|Username of the administrator user for UCP and DTR, typically `admin`.|

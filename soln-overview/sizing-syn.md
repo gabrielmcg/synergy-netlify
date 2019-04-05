@@ -4,7 +4,8 @@ A node is a machine in the cluster (virtual or physical) with Docker Engine runn
 
 To decide what size the node should be in terms of CPU, RAM, and storage resources, consider the following:
 
-1.  All nodes should at least fulfil the minimal requirements, for UCP 3.1, 8GB of RAM and 6GB of storage. For production systems, 16GB of RAM and 25-100GB of free disk space is recommended for manager nodes. More detailed requirements are in the Docker EE UCP documentation at [https://docs.docker.com/ee/ucp/admin/install/system-requirements/](https://docs.docker.com/ee/ucp/admin/install/system-requirements/).
+1.  All nodes should at least fulfil the minimal requirements, for UCP 3.1, 8GB of RAM and 6GB of storage. For production systems, 16GB of RAM and 25-100GB of free disk space is recommended for manager nodes. More detailed requirements are in the Docker EE UCP documentation at 
+[https://docs.docker.com/ee/ucp/admin/install/system-requirements/](https://docs.docker.com/ee/ucp/admin/install/system-requirements/).
 2.  UCP controller nodes should be provisioned with more than the minimal requirements if other workloads run on them.
 3.  Ideally, worker node size will vary based on your workloads so it is impossible to define a universal standard size.
 4.  Other considerations like target density (average number of containers per node), whether one standard node type or several are preferred, and other operational considerations might also influence sizing.
