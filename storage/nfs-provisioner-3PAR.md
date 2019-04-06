@@ -103,6 +103,6 @@ The overview for the created File Share is shown below and contains the informat
 [media-3par-create-filestore-complete-png]:<../media/3par-create-filestore-complete.png> "Figure. File Store"
 
 [media-3par-create-fileshare-png]:<../media/3par-create-fileshare.png> "Figure. Create File Share - General"
-[media-3par-create-fileshare-sharepath-png]:<../media/3par-create-fileshare-sharepath-k8s.png> "Figure. Create File Share - Share Path"
+[media-3par-create-fileshare-sharepath-k8s-png]:<../media/3par-create-fileshare-sharepath-k8s.png> "Figure. Create File Share - Share Path"
 [media-3par-create-fileshare-additional-png]:<../media/3par-create-fileshare-additional.png> "Figure. Create File Share - Additional Settings"
 [media-3par-create-fileshare-complete-k8s-png]:<../media/3par-create-fileshare-complete-k8s.png> "Figure. File Share"
