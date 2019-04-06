@@ -1,4 +1,4 @@
-# Deploying the NFS provisioner for Kubernetes
+# Using NFS VM when deploying NFS provisioner for Kubernetes
 
 ## Prerequisites
 
@@ -9,7 +9,7 @@
 
 
 
-## Using NFS VM for post-deployment verification
+## Configurating NFS VM for post-deployment verification
 
 In this example, it is assumed that the relevant variables are configured as follows:
 

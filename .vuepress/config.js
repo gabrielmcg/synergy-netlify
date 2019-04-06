@@ -123,6 +123,7 @@ module.exports = {
       {
         title: 'Configuring Storage',
         children: [
+          'storage/nfs-provisioner-3PAR',
           'storage/nfs-provisioner',
           'storage/wordpress-mysql-nfs'
         ]
