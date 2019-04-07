@@ -113,7 +113,7 @@ Once the appropriate configuration has been establised, run the playbook:
 
 ```
 # cd ~/Docker-Synergy
-# ansible-playbook -i hosts playbooks/nfs-provisioner.yml
+# ansible-playbook -i hosts playbooks/nfs-provisioner.yml --vault-password-file .vault_pass
 ```
 
 Running the command `kubectl get sc` will show the storage class named `nfs-3par`:

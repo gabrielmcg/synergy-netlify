@@ -24,8 +24,10 @@ In this example, it is assumed that the relevant variables are configured as fol
 |nfs_mount_options|`'rw,sync,actimeo=0'`|
 
 
-In this instance, the varaible `nfs_external_server` is commented out, resulting in the NFS VM being used, rather
-tanh any external server.
+In this instance, the variable `nfs_external_server` is commented out, resulting in the NFS VM being used, rather
+than any external server.
+
+**Note:** When using an external NFS server such as the one hosted by 3PAR, you need to create the file shares manually as shown in the previous section. If you are using the NFS VM, the file shares are created automatically by the playbook.
 
 
 ## Running the playbook

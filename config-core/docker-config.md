@@ -17,3 +17,14 @@ All Docker-related variables are mandatory and are described in the following ta
 |docker_storage_driver|group_vars/all/vars|Storage driver for Docker nodes. The only accepted value is `overlay2` (Previously, `devicemapper` was supported but this has been deprecated as it is no longer supported by Docker on RHEL 7.5 and 7.6)|
 
 To see how to use customer-supplied certificates with UCP and DTR, see Appendix B.
+
+## Storing DTR images on external NFS server
+
+Using a combination of `images_folder` and `nfs_external_server` variables, you can host your DTR images
+on an NFS server. If the variable `nfs_external_server` is unset or commented out, the NFS VM is used by default.
+
+When using an external NFS server such as the one hosted by 3PAR, you need to create the file share matching the name stored in `images_folder` manually, as 
+shown in the section `Using HPE 3PAR when deploying NFS provisioner for Kubernetes`. If you are using the NFS VM, the file share is created automatically by the playbooks.
+
+
+
