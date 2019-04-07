@@ -105,7 +105,7 @@ In this example, it is assumed that the relevant variables are configured as fol
 |nfs_provisioner_storage_class_name|`nfs-3par`|
 |nfs_external_server|`hpe_vfs3par.cloudra.local`|
 |nfs_provisioner_server_share|`/hpe_vfs3par/hpe_vfs3par/hpe_filestore3par/k8s`|
-
+|nfs_mount_options|`'rw,sync,actimeo=0'`|
 
 ## Running the playbook
 
@@ -115,6 +115,16 @@ Once the appropriate configuration has been establised, run the playbook:
 # cd ~/Docker-Synergy
 # ansible-playbook -i hosts playbooks/nfs-provisioner.yml
 ```
+
+Running the command `kubectl get sc` will show the storage class named `nfs-3par`:
+```
+# kubectl get sc
+
+NAME       PROVISIONER        AGE
+nfs-3par   hpe.com/nfs-3par   5m
+
+```
+
 
 The playbook has a built-in test to validate the provisioining. A pod is deployed to write some test content:
 
