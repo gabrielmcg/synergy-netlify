@@ -92,6 +92,97 @@ The overview for the created File Share is shown below and contains the informat
 
 
 
+## Configurating NFS on HPE 3PAR for post-deployment verification
+
+In this example, it is assumed that the relevant variables are configured as follows:
+
+|Variable|Value|
+|:-------|:----|
+|nfs_provisioner_namespace|`nfsstorage`|
+|nfs_provisioner_role|`nfs-provisioner-runner-3par`|
+|nfs_provisioner_serviceaccount|`nfs-provisioner`|
+|nfs_provisioner_name|`hpe.com/nfs-3par`|
+|nfs_provisioner_storage_class_name|`nfs-3par`|
+|nfs_external_server|`hpe_vfs3par.cloudra.local`|
+|nfs_provisioner_server_share|`/hpe_vfs3par/hpe_vfs3par/hpe_filestore3par/k8s`|
+
+
+## Running the playbook
+
+Once the appropriate configuration has been establised, run the playbook:
+
+```
+# cd ~/Docker-Synergy
+# ansible-playbook -i hosts playbooks/nfs-provisioner.yml
+```
+
+The playbook has a built-in test to validate the provisioining. A pod is deployed to write some test content:
+
+```
+templates/nfs-provisioner/nfs-provisioner-writer-pod.yml.j2
+
+kind: Pod
+apiVersion: v1
+metadata:
+  name: writer-pod
+spec:
+  containers:
+  - name: writer-pod
+    image: gcr.io/google_containers/busybox:1.24
+    command:
+      - "/bin/sh"
+    args:
+      - "-c"
+      - "echo '{{ TestMessage }}' >/mnt/bar.txt && while [ 1 ] ; do sleep 2 ; done "
+    volumeMounts:
+      - name: nfs-pvc
+        mountPath: "/mnt"
+  restartPolicy: "Never"
+  volumes:
+    - name: nfs-pvc
+      persistentVolumeClaim:
+        claimName: test-claim
+```
+
+This pod is then deleted, and a new pod is deployed to check that the test content has been persisted after the
+writer pod went away.
+
+```
+templates/nfs-provisioner/nfs-provisioner-reader-pod.yml.j2
+
+kind: Pod
+apiVersion: v1
+metadata:
+  name: reader-pod
+spec:
+  containers:
+  - name: reader-pod
+    image: gcr.io/google_containers/busybox:1.24
+    command:
+      - "/bin/sh"
+    args:
+      - "-c"
+      - "cat /mnt/bar.txt  && while [ 1 ] ; do sleep 1 ; done "
+    volumeMounts:
+      - name: nfs-pvc
+        mountPath: "/mnt"
+  restartPolicy: "Never"
+  volumes:
+    - name: nfs-pvc
+      persistentVolumeClaim:
+        claimName: test-claim
+```
+
+
+You should see the following output if the provisioning succeeds:
+
+```
+ok: [localhost] => {
+    "msg": "Successfully tested NFS persistent storage"
+}
+```
+
+
 [media-3par-create-vfs-png]:<../media/3par-create-vfs.png> "Figure. Create Virtual File Server - General"
 [media-3par-create-vfs-storage-png]:<../media/3par-create-vfs-storage.png> "Figure. Create Virtual File Server - Storage Allocation Settings" 
 [media-3par-create-vfs-vip-png]:<../media/3par-create-vfs-vip.png> "Figure. Create Virtual File Server - Add Virtual IP Address"
