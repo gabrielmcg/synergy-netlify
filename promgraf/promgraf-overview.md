@@ -2,7 +2,7 @@
 
 The solution can be configured to enable the use of Prometheus and Grafana for monitoring. In this setup, there is no need for native installs and all the required monitoring software runs in containers, deployed as either services or stacks. The load among the three hosts will be shared as per the following diagram.
 
- ![ "Solution architecture: Linux workers with Prometheus and Grafana"][media-simplivity-ops-architecture-promgraf-png] 
+ ![ "Solution architecture: Linux workers with Prometheus and Grafana"][media-synergy-ops-architecture-promgraf-png] 
 
 **Figure 18.** Solution architecture: Linux workers with Prometheus and Grafana
 
@@ -10,4 +10,4 @@ The Prometheus and Grafana services are declared in a Docker stack as replicated
 
 **Note:** Prometheus and Grafana functionality is not turned on by default in this solution - see the section on Configuration for more information on how to enable these tools. Additionally, this functionality will not work for the Windows worker nodes in your environment at present.
 
-[media-simplivity-ops-architecture-promgraf-png]:<../media/simplivity-ops-architecture-promgraf.png> "Figure 18. Solution architecture: Linux workers with Prometheus and Grafana"
+[media-synergy-ops-architecture-promgraf-png]:<../media/synergy-ops-architecture-promgraf.png> "Figure 18. Solution architecture: Linux workers with Prometheus and Grafana"

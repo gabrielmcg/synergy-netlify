@@ -27,7 +27,8 @@ In this example, it is assumed that the relevant variables are configured as fol
 In this instance, the variable `nfs_external_server` is commented out, resulting in the NFS VM being used, rather
 than any external server.
 
-**Note:** When using an external NFS server such as the one hosted by 3PAR, you need to create the file shares manually as shown in the previous section. If you are using the NFS VM, the file shares are created automatically by the playbook.
+**Note:** When using an external NFS server such as the one hosted by 3PAR, you need to create the file shares manually as shown in the previous section. If you are using the NFS VM, the file share is created automatically when running `site.yml` by the playbook `playbooks/install_nfs_server.yml`. If you wish to change the
+file share after initial deployment, you must update the variable `nfs_provisioner_server_share` and then re-run the playbook `playbooks/install_nfs_server.yml`.
 
 
 ## Running the playbook

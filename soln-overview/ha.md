@@ -4,11 +4,11 @@ Uptime is paramount for businesses implementing Docker containers in business cr
 
 ## Load Balancers
 
-This solution also deploys load balancers in the system to help with container traffic management. There are two load balancer VMs – the UCP load balancer and DTR load balancer. The playbooks can be configured to deploy one or more worker load balancers depending on the requirements of your applications. A typical load balancer architecture for applications running on Docker EE is shown in [\#lbs](#lbs). The playbooks now support load balancers based on VRRP, using `HAproxy` and `keepalived`. The solution can be deployed using these loadbalancers, or external load balancers, or no load balancers or the legacy version of standalone load balancers.
+This solution also deploys load balancers in the system to help with container traffic management. There are two load balancer VMs – the UCP load balancer and DTR load balancer. The playbooks can be configured to deploy one or more worker load balancers depending on the requirements of your applications. A typical load balancer architecture for applications running on Docker EE is shown in the figure below. The playbooks now support load balancers based on VRRP, using `HAproxy` and `keepalived`. The solution can be deployed using these loadbalancers, or external load balancers, or no load balancers or the legacy version of standalone load balancers.
 
  ![ "Load balancer architecture"][media-load-balancers-png] 
 
-**Figure 2.** Load balancer architecture
+**Figure.** Load balancer architecture
 
 
-[media-load-balancers-png]:<../media/load-balancers.png> "Figure 2. Load balancer architecture"
+[media-load-balancers-png]:<../media/load-balancers.png> "Figure. Load balancer architecture"
