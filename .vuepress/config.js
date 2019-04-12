@@ -198,7 +198,8 @@ module.exports = {
         children: [
           'backup-restore/backup-restore',
           'backup-restore/backup-ucp-dtr',
-          'backup-restore/restore-ucp-dtr'
+          'backup-restore/restore-ucp-dtr',
+          'backup-restore/docker-persistent-volumes'
         ]
       },
       {
