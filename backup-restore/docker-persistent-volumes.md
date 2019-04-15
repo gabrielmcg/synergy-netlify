@@ -37,9 +37,19 @@ HPE Recovery Manager Central enables you to replicate data from the source stora
 HPE Recovery Manager Central is installed as a VM on VMware vSphere ESXi. It can be installed on the HPE Synergy platform on a separate (from the Docker Solution) vSphere cluster or external to the Synergy environment as long as the external server has connectivity to the HPE 3PAR StoreServ and HPE StoreOnce. HPE RMC can be installed directly on an ESXi host or can be deployed to a VMware vCenter managed environment. For this solution, the standalone "RMC only" is installed. If HPE RMC is installed in the HPE Synergy environment, iSCSI connection to the HPE 3PAR StoreServ is required.
 
 
+![ "HPE Recovery Manger Central and HPE StoreOnce"][media-rmc-storeonce]
 
+**Figure.** HPE Recovery Manger Central and HPE StoreOnce
 
+- The connectivity between HPE 3PAR StoreServ and HPE RMC for data traffic is over iSCSI. 
+- The connectivity between HPE StoreOnce and HPE RMC is over CoEthernet (Catalyst OverEthernet)
+- The connectivity between HPE RMC, HPE 3PAR StoreServ, and HPE StoreOnce for management traffic is over IP. 
 
+The following figure illustrates the connectivity between various components.
+
+![ "Connectivity"][media-3par-storeonce-networking]
+
+**Figure.** Connectivity 
 
 
 
@@ -63,6 +73,38 @@ as the Docker Backup datastore as shown in the following figure.
     **Figure.** Add new hard disk
 
 
+
+4. After the hard disk is added, it is visible from the Linux operating system. From the Ansible server:
+```
+# ls /dev/sd*
+```
+
+5. The newly added storage should appear as /dev/sdb. Now, make a filesystem, ignoring any warnings:
+```
+# mkfs -t ext4 /dev/sdb 
+```
+
+6. Create a mount point for the new disk:
+```
+# mkdir /dockerbackup
+```
+
+7. Edit the /etc/fstab file and add the following line:
+```
+/dev/sdb /dockerbackup ext4 defaults 0  0
+```
+
+8. After saving the change, mount the new volume using:
+```
+#mount -a
+```
+
+Each time you backup Docker UCP and DTR using the `backup.sh` script, you should copy the generated files from the `/root/backups` folder to `/dockerbackup`. You may wish to add a command to the backup script to automate this process.
+The virtual volume used to host the `DockerBackup` datastore can be scheduled for snapshot and backup protection with HPE Recovery Manager Central and HPE StoreOnce as described in the section `Backup and restore Docker persistent volumes`. Data backed up to HPE StoreOnce can be restored to the HPE 3PAR StoreServ and attached to the Ansible host for recovery. 
+
+
+[media-rmc-storeonce]:<../media/rmc-storeonce.png> 
+[media-3par-storeonce-networking]:<../media/3par-storeonce-networking.png> 
 [media-add-new-disk]:<../media/add-new-disk.png> 
 
 
